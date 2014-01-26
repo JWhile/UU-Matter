@@ -127,7 +127,7 @@ UUMatter.prototype.addScore = function(score)
 // function damage(int damage):void
 UUMatter.prototype.damage = function(damage)
 {
-    if(damage > this.life)
+    if(damage >= this.life)
     {
         this.life = 0;
 
