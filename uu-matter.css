@@ -31,5 +31,7 @@ body{
         width:32px;
         height:32px;
         background:rgba(255,255,255,0.2) url('img/uu-matter.png') center center no-repeat;
+        border:0 dotted #d40000;
         border-radius:16px;
+        transition:background-color .4s;
     }

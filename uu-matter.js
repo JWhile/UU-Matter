@@ -53,6 +53,13 @@ UUMatter.prototype.update = function()
 
             this.damage(2);
         }
+
+        if(uu.removed)
+        {
+            this.uus.splice(i, 1);
+
+            --i;
+        }
     }
 };
 // function damage(int damage):void
@@ -89,7 +96,15 @@ function UU()
     this.x = 0; // :int
     this.y = 0; // :int
 
-    this.className('uu');
+    this.removed = false; // :boolean
+
+    this.className('uu')
+        .event('click', function()
+        {
+            self.removed = true;
+
+            self.remove();
+        });
 }
 // function update():void
 UU.prototype.update = function()
@@ -98,10 +113,18 @@ UU.prototype.update = function()
 // function explode():void
 UU.prototype.explode = function()
 {
-    this.remove();
+    this.removed = true;
+
+    this.css('background-color', 'rgba(255,10,10,0.7)')
+        .css('background-image', 'none');
+
     var self = this;
 
-    setTimeout()
+    setTimeout(function()
+    {
+        self.remove();
+
+    }, 450);
 };
 // function collide(int size):boolean
 UU.prototype.collide = function(size)
