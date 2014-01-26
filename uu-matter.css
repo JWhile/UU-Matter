@@ -61,8 +61,7 @@ body{
         width:64px;
         height:64px;
         background:#8b8b8b url('img/matter-fabricator.png') center center no-repeat;
-        border:0 solid #0040d4;
-        transition:border-width .5s ease-in;
+        box-shadow:0 0 10px #959595;
     }
     .uu{
         position:absolute;
