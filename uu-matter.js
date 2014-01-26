@@ -13,10 +13,28 @@ function UUMatter()
 
     this.uus = []; // :Array<UU>
 
+    this.life = 20; // :int
+
     this.className('uu-matter')
         .append(new Builder('div')
             .className('uu-fabricator'));
+
+    this.damage(0);
 }
+// function damage(int damage):void
+UUMatter.prototype.damage = function(damage)
+{
+    if(damage > this.life)
+    {
+        this.life = 0;
+    }
+    else
+    {
+        this.life -= damage;
+    }
+
+    this.css('outline-width', this.life * 2 +'px');
+};
 // function spawnUU():void
 UUMatter.prototype.spawnUU = function()
 {
