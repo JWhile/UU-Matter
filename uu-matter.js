@@ -11,6 +11,8 @@ function UUMatter()
 {
     this.super('div');
 
-    this.className('uu-matter');
+    this.className('uu-matter')
+        .append(new Builder('div')
+            .className('uu-fabricator'));
 }
 fus.extend(UUMatter, Builder);
