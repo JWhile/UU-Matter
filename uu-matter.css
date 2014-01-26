@@ -1,0 +1,18 @@
+/**
+ * UU-Matter <https://github.com/JWhile/UU-Matter>
+ *
+ * Copyright (c) 2014 juloo
+ *
+ * uu-matter.js
+ */
+
+body{
+    background:#ccc;
+}
+.uu-matter{
+    margin:70px auto;
+    width:550px;
+    height:550px;
+    background:#a9a9a9;
+    border:0 solid #d40000;
+}
