@@ -13,7 +13,7 @@ function UUMatter()
 
     this.uus = []; // :Array<UU>
 
-    this.life = 20; // :int
+    this.life = 0; // :int
     this.score = 0; // :int
 
     this.frames = 0; // :int
@@ -42,16 +42,28 @@ function UUMatter()
         .append(new Builder('div')
             .className('uu-fabricator'));
 
-    this.damage(0);
     this.addScore(0);
 }
 // function start():void
 UUMatter.prototype.start = function()
 {
+    this.menu.css('display', 'none');
+
+    for(var i = 0; i < this.uus.length; ++i)
+    {
+        this.uus[i].remove();
+    }
+
+    this.uus = [];
+
+    this.score = 0;
+    this.addScore(0);
+
+    this.life = 20;
+    this.damage(0);
+
     this.frames = 0;
     this.playing = true;
-
-    this.menu.css('display', 'none');
 
     var self = this;
 
