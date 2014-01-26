@@ -14,12 +14,18 @@ function UUMatter()
     this.uus = []; // :Array<UU>
 
     this.life = 20; // :int
+    this.score = 0; // :int
+
+    this.scoreSpan = new Builder('span')
+            .className('uu-counter');
 
     this.className('uu-matter')
+        .append(this.scoreSpan)
         .append(new Builder('div')
             .className('uu-fabricator'));
 
     this.damage(0);
+    this.addScore(0);
 }
 // function start():void
 UUMatter.prototype.start = function()
@@ -62,6 +68,13 @@ UUMatter.prototype.update = function()
         }
     }
 };
+// function addScore(int score):void
+UUMatter.prototype.addScore = function(score)
+{
+    this.score += score;
+
+    this.scoreSpan.text('x '+ score);
+};
 // function damage(int damage):void
 UUMatter.prototype.damage = function(damage)
 {
@@ -79,7 +92,7 @@ UUMatter.prototype.damage = function(damage)
 // function spawnUU():void
 UUMatter.prototype.spawnUU = function()
 {
-    var uu = new UU();
+    var uu = new UU(this);
 
     var pos = (564 - 32) / 2;
     uu.setPos(pos, pos);
@@ -89,19 +102,25 @@ UUMatter.prototype.spawnUU = function()
 fus.extend(UUMatter, Builder);
 
 // class UU extends Builder
-function UU()
+function UU(uuMatter)
 {
     this.super('span');
+
+    this.uuMatter = uuMatter; // :UUMatter
 
     this.x = 0; // :int
     this.y = 0; // :int
 
     this.removed = false; // :boolean
 
+    var self = this;
+
     this.className('uu')
         .event('click', function()
         {
             self.removed = true;
+
+            self.uuMatter.addScore(1);
 
             self.remove();
         });

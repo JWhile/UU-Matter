@@ -9,6 +9,7 @@
 body{
     background:#ccc;
     text-align:center;
+    font-family:sans-serif;
 }
 .uu-matter{
     position:relative;
@@ -18,6 +19,13 @@ body{
     outline:#d40000 solid 0;
     transition:outline-width .2s;
 }
+    .uu-counter{
+        display:inline-block;
+        padding-left:32px;
+        background:url('img/uu-matter.png') 0 center no-repeat;
+        line-height:32px;
+        font-size:22px;
+    }
     .uu-fabricator{
         margin:250px;
         width:64px;
