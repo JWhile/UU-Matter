@@ -174,7 +174,7 @@ function UU(uuMatter)
     var self = this;
 
     this.className('uu')
-        .event('click', function()
+        .event('mouseup', function()
         {
             if(!this.exploded)
             {
