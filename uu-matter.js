@@ -16,6 +16,9 @@ function UUMatter()
     this.life = 20; // :int
     this.score = 0; // :int
 
+    this.frames = 0; // :int
+    this.started = false; // :boolean
+
     this.scoreSpan = new Builder('span')
             .className('uu-counter');
 
@@ -30,13 +33,23 @@ function UUMatter()
 // function start():void
 UUMatter.prototype.start = function()
 {
+    this.frames = 0;
+    this.started = true;
+
     var self = this;
 
     var loop = function()
     {
-        if(self.gaming)
+        if(self.started)
         {
             newFrame(loop);
+        }
+
+        if(++self.frames > (60 / (self.score + 1) + 30))
+        {
+            self.frames = 0;
+
+            self.spawnUU();
         }
 
         self.update();
@@ -73,7 +86,7 @@ UUMatter.prototype.addScore = function(score)
 {
     this.score += score;
 
-    this.scoreSpan.text('x '+ score);
+    this.scoreSpan.text('x '+ this.score);
 };
 // function damage(int damage):void
 UUMatter.prototype.damage = function(damage)
