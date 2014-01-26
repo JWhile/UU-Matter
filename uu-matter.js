@@ -17,12 +17,27 @@ function UUMatter()
     this.score = 0; // :int
 
     this.frames = 0; // :int
-    this.started = false; // :boolean
+    this.playing = false; // :boolean
+
+    var self = this;
+
+    this.menu = new Builder('div')
+            .className('uu-menu')
+            .append(new Builder('h1')
+                .text('UU-Matter'))
+            .append(new Builder('a')
+                .className('button')
+                .text('Jouer')
+                .event('click', function()
+                {
+                    self.start();
+                }));
 
     this.scoreSpan = new Builder('span')
             .className('uu-counter');
 
     this.className('uu-matter')
+        .append(this.menu)
         .append(this.scoreSpan)
         .append(new Builder('div')
             .className('uu-fabricator'));
@@ -34,28 +49,37 @@ function UUMatter()
 UUMatter.prototype.start = function()
 {
     this.frames = 0;
-    this.started = true;
+    this.playing = true;
+
+    this.menu.css('display', 'none');
 
     var self = this;
 
     var loop = function()
     {
-        if(self.started)
+        if(self.playing)
         {
             newFrame(loop);
+
+            if(++self.frames > (60 / (self.score + 1) + 30))
+            {
+                self.frames = 0;
+
+                self.spawnUU();
+            }
+
+            self.update();
         }
-
-        if(++self.frames > (60 / (self.score + 1) + 30))
-        {
-            self.frames = 0;
-
-            self.spawnUU();
-        }
-
-        self.update();
     };
 
     newFrame(loop);
+};
+// function stop():void
+UUMatter.prototype.stop = function()
+{
+    this.playing = false;
+
+    this.menu.css('display', 'block');
 };
 // function update():void
 UUMatter.prototype.update = function()
