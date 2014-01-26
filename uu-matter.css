@@ -19,6 +19,31 @@ body{
     outline:#d40000 solid 0;
     transition:outline-width .2s;
 }
+    .uu-menu{
+        z-index:99;
+        position:absolute;
+        width:100%;
+        height:100%;
+        background:rgba(0,0,0,0.3);
+    }
+        .uu-menu h1{
+            margin:50px 0;
+            font-size:64px;
+            color:#111111;
+        }
+        .button{
+            cursor:pointer;
+            display:inline-block;
+            margin:15px 0;
+            padding:5px 25px;
+            background:#888;
+            border:1px solid #222;
+        }
+        .button:hover{
+            background:#3f3f3f;
+            box-shadow:inset 0 0 3px #333;
+            color:#bbb;
+        }
     .uu-counter{
         position:absolute;
         top:15px;
