@@ -30,6 +30,8 @@ body{
         font-size:22px;
     }
     .uu-fabricator{
+        z-index:9;
+        position:relative;
         margin:250px;
         width:64px;
         height:64px;
