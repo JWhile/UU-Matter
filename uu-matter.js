@@ -31,7 +31,10 @@ function UUMatter()
                 .event('click', function()
                 {
                     self.start();
-                }));
+                }))
+            .append(new Builder('p')
+                .className('uu-footer')
+                .html('Créé par <a href="https://github.com/JWhile" target="_blank">juloo</a>'));
 
     this.scoreSpan = new Builder('span')
             .className('uu-counter');
@@ -40,10 +43,7 @@ function UUMatter()
         .append(this.menu)
         .append(this.scoreSpan)
         .append(new Builder('div')
-            .className('uu-fabricator'))
-        .append(new Builder('p')
-            .className('uu-footer')
-            .html('Créé par <a href="https://github.com/JWhile" target="_blank">juloo</a>'));
+            .className('uu-fabricator'));
 
     this.addScore(0);
 }
