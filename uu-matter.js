@@ -40,7 +40,10 @@ function UUMatter()
         .append(this.menu)
         .append(this.scoreSpan)
         .append(new Builder('div')
-            .className('uu-fabricator'));
+            .className('uu-fabricator'))
+        .append(new Builder('p')
+            .className('uu-footer')
+            .html('Créé par <a href="https://github.com/JWhile" target="_blank">juloo</a>'));
 
     this.addScore(0);
 }
