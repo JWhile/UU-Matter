@@ -23,7 +23,7 @@ a:hover{
     display:inline-block;
     margin:70px 0 0 0;
     background:#a9a9a9;
-    outline:#d40000 solid 0;
+    outline:0 solid #b11;
     transition:outline-width .2s;
 }
     .uu-menu{

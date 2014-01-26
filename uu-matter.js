@@ -141,7 +141,7 @@ UUMatter.prototype.damage = function(damage)
         this.life -= damage;
     }
 
-    this.css('outline-width', this.life * 3 +'px');
+    this.css('outlineWidth', this.life * 3 +'px');
 };
 // function spawnUU():void
 UUMatter.prototype.spawnUU = function()
@@ -196,8 +196,8 @@ UU.prototype.explode = function()
 {
     this.exploded = true;
 
-    this.css('background-color', 'rgba(255,10,10,0.7)')
-        .css('background-image', 'none');
+    this.css('backgroundColor', 'rgba(255,10,10,0.7)')
+        .css('backgroundImage', 'none');
 
     var self = this;
 
