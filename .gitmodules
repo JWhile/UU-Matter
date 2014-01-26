@@ -4,3 +4,6 @@
 [submodule "libs/Animable.js"]
 	path = libs/Animable.js
 	url = git@github.com:JWhile/Animable.js.git
+[submodule "libs/Fus"]
+	path = libs/Fus
+	url = git@github.com:JWhile/Fus.git
