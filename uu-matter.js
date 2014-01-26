@@ -66,7 +66,7 @@ UUMatter.prototype.update = function()
 
         uu.update();
 
-        if(uu.collide(564))
+        if(!uu.exploded && uu.collide(564))
         {
             uu.explode();
 
@@ -124,6 +124,10 @@ function UU(uuMatter)
     this.x = 0; // :int
     this.y = 0; // :int
 
+    this.aX = Math.random() * 2 - 1; // :float
+    this.aY = Math.random() * 2 - 1; // :float
+
+    this.exploded = false; // :boolean
     this.removed = false; // :boolean
 
     var self = this;
@@ -131,21 +135,25 @@ function UU(uuMatter)
     this.className('uu')
         .event('click', function()
         {
-            self.removed = true;
+            if(!this.exploded)
+            {
+                self.removed = true;
 
-            self.uuMatter.addScore(1);
+                self.uuMatter.addScore(1);
 
-            self.remove();
+                self.remove();
+            }
         });
 }
 // function update():void
 UU.prototype.update = function()
 {
+    this.setPos(this.x + this.aX, this.y + this.aY)
 };
 // function explode():void
 UU.prototype.explode = function()
 {
-    this.removed = true;
+    this.exploded = true;
 
     this.css('background-color', 'rgba(255,10,10,0.7)')
         .css('background-image', 'none');
@@ -154,6 +162,8 @@ UU.prototype.explode = function()
 
     setTimeout(function()
     {
+        self.removed = true;
+
         self.remove();
 
     }, 450);
