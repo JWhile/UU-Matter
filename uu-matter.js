@@ -130,13 +130,15 @@ UUMatter.prototype.damage = function(damage)
     if(damage > this.life)
     {
         this.life = 0;
+
+        this.stop();
     }
     else
     {
         this.life -= damage;
     }
 
-    this.css('outline-width', this.life * 2 +'px');
+    this.css('outline-width', this.life * 3 +'px');
 };
 // function spawnUU():void
 UUMatter.prototype.spawnUU = function()
