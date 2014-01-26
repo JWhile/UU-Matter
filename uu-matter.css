@@ -20,6 +20,9 @@ body{
     transition:outline-width .2s;
 }
     .uu-counter{
+        position:absolute;
+        top:15px;
+        left:30px;
         display:inline-block;
         padding-left:32px;
         background:url('img/uu-matter.png') 0 center no-repeat;
