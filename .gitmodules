@@ -7,3 +7,6 @@
 [submodule "libs/Fus"]
 	path = libs/Fus
 	url = git@github.com:JWhile/Fus.git
+[submodule "libs/RequestFrame.js"]
+	path = libs/RequestFrame.js
+	url = git@github.com:JWhile/RequestFrame.js.git
