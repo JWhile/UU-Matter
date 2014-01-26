@@ -20,7 +20,12 @@ function UUMatter()
 // function spawnUU():void
 UUMatter.prototype.spawnUU = function()
 {
-    this.uus.push(new UU());
+    var pos = (564 - 32) / 2;
+
+    this.uus.push(new UU()
+            .css('top', pos +'px')
+            .css('left', pos +'px')
+            .insert(this));
 };
 fus.extend(UUMatter, Builder);
 
