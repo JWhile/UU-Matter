@@ -8,11 +8,20 @@
 
 body{
     background:#ccc;
+    text-align:center;
 }
 .uu-matter{
-    margin:70px auto;
-    width:550px;
-    height:550px;
+    display:inline-block;
+    margin:70px 0 0 0;
     background:#a9a9a9;
     border:0 solid #d40000;
+    transition:border-width .2s;
 }
+    .uu-fabricator{
+        margin:250px;
+        width:64px;
+        height:64px;
+        background:#8b8b8b;
+        border:0 solid #0040d4;
+        transition:border-width .5s ease-in;
+    }
