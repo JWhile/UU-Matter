@@ -15,8 +15,8 @@ body{
     display:inline-block;
     margin:70px 0 0 0;
     background:#a9a9a9;
-    border:0 solid #d40000;
-    transition:border-width .2s;
+    outline:#d40000 solid 0;
+    transition:outline-width .2s;
 }
     .uu-fabricator{
         margin:250px;
