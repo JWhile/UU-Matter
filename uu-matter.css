@@ -11,6 +11,7 @@ body{
     text-align:center;
 }
 .uu-matter{
+    position:relative;
     display:inline-block;
     margin:70px 0 0 0;
     background:#a9a9a9;
@@ -24,4 +25,7 @@ body{
         background:#8b8b8b;
         border:0 solid #0040d4;
         transition:border-width .5s ease-in;
+    }
+    .uu{
+        position:absolute;
     }
