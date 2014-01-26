@@ -19,6 +19,7 @@ a:hover{
     text-decoration:underline;
 }
 .uu-matter{
+    overflow:hidden;
     position:relative;
     display:inline-block;
     margin:70px 0 0 0;
