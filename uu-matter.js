@@ -16,6 +16,8 @@ function UUMatter()
     this.life = 0; // :int
     this.score = 0; // :int
 
+    this.toSpawn = 0; // :int
+
     this.frames = 0; // :int
     this.playing = false; // :boolean
 
@@ -65,6 +67,8 @@ UUMatter.prototype.start = function()
     this.life = 20;
     this.damage(0);
 
+    this.toSpawn = 2;
+
     this.frames = 0;
     this.playing = true;
 
@@ -76,8 +80,9 @@ UUMatter.prototype.start = function()
         {
             newFrame(loop);
 
-            if(++self.frames > (60 / (self.score + 1) + 30))
+            if(self.toSpawn >= 1 && ++self.frames > (60 / self.toSpawn))
             {
+                --self.toSpawn;
                 self.frames = 0;
 
                 self.spawnUU();
@@ -115,6 +120,8 @@ UUMatter.prototype.update = function()
         if(uu.removed)
         {
             this.uus.splice(i, 1);
+
+            this.toSpawn += 1 / (this.score + 2) * 2 + 1;
 
             --i;
         }
