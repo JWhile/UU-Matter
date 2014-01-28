@@ -90,7 +90,7 @@ a:hover{
         border-radius:16px;
     }
      .uu{
-         transition-poperty:background-color,opacity;
+         transition-property:background-color,opacity;
          transition-duration:.5s;
      }
      .uu-ghost{
