@@ -176,7 +176,7 @@ UUMatter.prototype.damage = function(damage)
 
     var size = this.life * 3 +'px';
 
-    this.css('boxShadow', size +' 0 0 #B11,0 '+ size +' 0 #B11,-'+ size +' 0 0 #B11,0 -'+ size +' 0 #B11,inset 0 0 '+ ((20.2 - this.life) * 5) +'px #700')
+    this.css('boxShadow', size +' 0 0 #B11,0 '+ size +' 0 #B11,-'+ size +' 0 0 #B11,0 -'+ size +' 0 #B11,inset 0 0 '+ ((20.4 - this.life) * 5) +'px #700')
 };
 // function spawnUU():void
 UUMatter.prototype.spawnUU = function()
