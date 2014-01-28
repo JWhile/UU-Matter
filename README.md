@@ -1,6 +1,6 @@
 # UU-Matter
 
-_v0.2.1_
+_v0.2.2_
 
 Attrapez-les tous !
 
