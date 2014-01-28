@@ -10,6 +10,10 @@ body{
     background:#ccc;
     text-align:center;
     font-family:sans-serif;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    user-select:none;
 }
 a,a:visited{
     text-decoration:none;
