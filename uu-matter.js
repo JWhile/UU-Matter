@@ -189,7 +189,22 @@ function UU(uuMatter)
 
                 self.uuMatter.addScore(1);
 
-                self.remove();
+                self.className('uu-ghost')
+                    .css('top', '15px')
+                    .css('left', '30px');
+
+                setTimeout(function()
+                {
+                    self.className('uu')
+                        .css('opacity', '0');
+
+                    setTimeout(function()
+                    {
+                        self.remove();
+
+                    }, 450);
+
+                }, 200);
             }
         });
 }
