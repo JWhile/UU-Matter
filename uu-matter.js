@@ -43,7 +43,7 @@ function UUMatter()
                 }))
             .append(new Builder('p')
                 .className('uu-footer')
-                .html('Créé par <a href="https://github.com/JWhile" target="_blank">juloo</a> - v0.2.3'));
+                .html('Créé par <a href="https://github.com/JWhile" target="_blank">juloo</a> - v0.2.4'));
 
     this.scoreSpan = new Builder('span')
             .className('uu-counter');
