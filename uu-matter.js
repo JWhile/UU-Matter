@@ -192,8 +192,7 @@ function UU(uuMatter)
                 self.uuMatter.addScore(1);
 
                 self.className('uu-ghost')
-                    .css('top', '15px')
-                    .css('left', '30px');
+                    .setPos(15, 30);
 
                 setTimeout(function()
                 {
@@ -240,7 +239,7 @@ UU.prototype.collide = function(size)
 
     return (this.x < 0 || this.x > size || this.y < 0 || this.y > size);
 };
-// function setPos(int x, int y):void
+// function setPos(int x, int y):@Chainable
 UU.prototype.setPos = function(x, y)
 {
     this.x = x;
@@ -248,5 +247,7 @@ UU.prototype.setPos = function(x, y)
 
     this.css('top', this.x +'px')
         .css('left', this.y +'px');
+
+    return this;
 };
 fus.extend(UU, Builder);
