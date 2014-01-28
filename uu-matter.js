@@ -48,11 +48,13 @@ function UUMatter()
     this.scoreSpan = new Builder('span')
             .className('uu-counter');
 
+    this.uuFabricator = new Builder('div')
+            .className('uu-fabricator');
+
     this.className('uu-matter')
         .append(this.menu)
         .append(this.scoreSpan)
-        .append(new Builder('div')
-            .className('uu-fabricator'));
+        .append(this.uuFabricator);
 
     this.setScore(0);
 }
@@ -187,6 +189,15 @@ UUMatter.prototype.spawnUU = function()
     uu.setPos(pos, pos);
 
     this.uus.push(uu.insert(this));
+
+    var self = this;
+
+    this.uuFabricator.className('uu-fabricator on');
+
+    setTimeout(function()
+    {
+        self.uuFabricator.className('uu-fabricator');
+    }, 350);
 };
 fus.extend(UUMatter, Builder);
 
