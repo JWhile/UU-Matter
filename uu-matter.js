@@ -23,10 +23,15 @@ function UUMatter()
 
     var self = this;
 
+    this.menuBestScore = new Builder('p')
+            .css('display', 'none')
+            .className('uu-best');
+
     this.menu = new Builder('div')
             .className('uu-menu')
             .append(new Builder('h1')
                 .text('UU-Matter'))
+            .append(this.menuBestScore)
             .append(new Builder('a')
                 .className('button')
                 .text('Jouer')
@@ -97,6 +102,9 @@ UUMatter.prototype.start = function()
 UUMatter.prototype.stop = function()
 {
     this.playing = false;
+
+    this.menuBestScore.css('display', 'block')
+            .text('DEAD! Score: '+ this.score);
 
     this.menu.css('display', 'block');
 };
