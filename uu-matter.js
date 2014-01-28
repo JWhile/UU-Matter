@@ -75,7 +75,7 @@ UUMatter.prototype.start = function()
     this.life = 20;
     this.damage(0);
 
-    this.toSpawn = 2;
+    this.toSpawn = 1;
 
     this.frames = 0;
     this.playing = true;
@@ -101,6 +101,8 @@ UUMatter.prototype.start = function()
     };
 
     newFrame(loop);
+
+    this.spawnUU();
 };
 // function stop():void
 UUMatter.prototype.stop = function()
