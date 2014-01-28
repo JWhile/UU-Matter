@@ -109,13 +109,18 @@ UUMatter.prototype.stop = function()
 {
     this.playing = false;
 
+    this.menuBestScore.css('color', '#911');
+
     if(this.score > this.bestScore)
     {
         this.setBestScore(this.score);
-    }
 
-    this.menuBestScore.css('color', '#911')
-            .text('DEAD! Score: '+ this.score +((this.bestScore > 0)? ', Best: '+ this.bestScore : ''));
+        this.menuBestScore.text('Best score: '+ this.bestScore);
+    }
+    else
+    {
+        this.menuBestScore.text('DEAD! Score: '+ this.score +((this.bestScore > 0)? ' (Best: '+ this.bestScore +')' : ''));
+    }
 
     this.menu.css('display', 'block');
 };
