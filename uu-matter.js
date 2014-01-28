@@ -174,7 +174,9 @@ UUMatter.prototype.damage = function(damage)
         this.life -= damage;
     }
 
-    this.css('outlineWidth', this.life * 3 +'px');
+    var size = this.life * 3 +'px';
+
+    this.css('boxShadow', size +' 0 0 #B11,0 '+ size +' 0 #B11,-'+ size +' 0 0 #B11,0 -'+ size +' 0 #B11,inset 0 0 '+ ((20.2 - this.life) * 5) +'px #700')
 };
 // function spawnUU():void
 UUMatter.prototype.spawnUU = function()

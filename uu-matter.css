@@ -29,8 +29,8 @@ a:hover{
     display:inline-block;
     margin:70px 0 0 0;
     background:#a9a9a9;
-    outline:0 solid #b11;
-    transition:outline-width .2s;
+    box-shadow:0 0 3px #b11,inset 0 0 2px #700;
+    transition:box-shadow .2s;
 }
     .uu-menu{
         cursor:default;
