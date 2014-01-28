@@ -13,6 +13,8 @@ function UUMatter()
 
     this.uus = []; // :Array<UU>
 
+    this.bestScore = localStorage && parseInt(localStorage.getItem('UUMatterBestScore')) || 0; // :int
+
     this.life = 0; // :int
     this.score = 0; // :int
 
@@ -24,7 +26,7 @@ function UUMatter()
     var self = this;
 
     this.menuBestScore = new Builder('p')
-            .css('display', 'none')
+            .text('Best score: '+ this.bestScore)
             .className('uu-best');
 
     this.menu = new Builder('div')
@@ -103,8 +105,13 @@ UUMatter.prototype.stop = function()
 {
     this.playing = false;
 
-    this.menuBestScore.css('display', 'block')
-            .text('DEAD! Score: '+ this.score);
+    if(this.score > this.bestScore)
+    {
+        this.setBestScore(this.score);
+    }
+
+    this.menuBestScore.css('color', '#911')
+            .text('DEAD! Score: '+ this.score +((this.bestScore > 0)? ', Best: '+ this.bestScore : ''));
 
     this.menu.css('display', 'block');
 };
@@ -142,6 +149,16 @@ UUMatter.prototype.setScore = function(score)
     this.score = score;
 
     this.scoreSpan.css('display', (this.score === 0)? 'none' : 'block').text('x '+ this.score);
+};
+// function setBestScore(int score):@Chainable
+UUMatter.prototype.setBestScore = function(score)
+{
+    this.bestScore = score;
+
+    if(localStorage)
+    {
+        localStorage.setItem('UUMatterBestScore', this.bestScore);
+    }
 };
 // function damage(int damage):void
 UUMatter.prototype.damage = function(damage)
