@@ -108,15 +108,6 @@ UUMatter.prototype.update = function()
     {
         uu = this.uus[i];
 
-        uu.update();
-
-        if(!uu.exploded && uu.collide(564))
-        {
-            uu.explode();
-
-            this.damage(2);
-        }
-
         if(uu.removed)
         {
             this.uus.splice(i, 1);
@@ -124,6 +115,17 @@ UUMatter.prototype.update = function()
             this.toSpawn += 1 / (this.score + 2) * 2 + 1;
 
             --i;
+
+            continue;
+        }
+
+        uu.update();
+
+        if(!uu.exploded && uu.collide(564))
+        {
+            uu.explode();
+
+            this.damage(2);
         }
     }
 };
