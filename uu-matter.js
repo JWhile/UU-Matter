@@ -47,7 +47,7 @@ function UUMatter()
         .append(new Builder('div')
             .className('uu-fabricator'));
 
-    this.addScore(0);
+    this.setScore(0);
 }
 // function start():void
 UUMatter.prototype.start = function()
@@ -61,8 +61,7 @@ UUMatter.prototype.start = function()
 
     this.uus = [];
 
-    this.score = 0;
-    this.addScore(0);
+    this.setScore(0);
 
     this.life = 20;
     this.damage(0);
@@ -129,12 +128,12 @@ UUMatter.prototype.update = function()
         }
     }
 };
-// function addScore(int score):void
-UUMatter.prototype.addScore = function(score)
+// function setScore(int score):@Chainable
+UUMatter.prototype.setScore = function(score)
 {
-    this.score += score;
+    this.score = score;
 
-    this.scoreSpan.text('x '+ this.score);
+    this.scoreSpan.css('display', (this.score === 0)? 'none' : 'block').text('x '+ this.score);
 };
 // function damage(int damage):void
 UUMatter.prototype.damage = function(damage)
@@ -189,7 +188,7 @@ function UU(uuMatter)
             {
                 self.removed = true;
 
-                self.uuMatter.addScore(1);
+                self.uuMatter.setScore(self.uuMatter.score + 1);
 
                 self.className('uu-ghost')
                     .setPos(15, 30);
