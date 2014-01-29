@@ -28,7 +28,10 @@ a:hover{
     position:relative;
     display:inline-block;
     margin:70px 0 0 0;
-    background:#a9a9a9;
+    background:-webkit-radial-gradient(#adadad,#919191);
+    background:-moz-radial-gradient(#adadad,#919191);
+    background:-o-radial-gradient(#adadad,#919191);
+    background:radial-gradient(#adadad,#919191);
     box-shadow:0 0 3px #b11,inset 0 0 2px #700;
     transition:box-shadow .2s;
 }
