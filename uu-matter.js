@@ -20,7 +20,6 @@ function UUMatter()
 
     this.toSpawn = 0; // :int
 
-    this.frames = 0; // :int
     this.playing = false; // :boolean
 
     this.fps = new FPS(); // :FPS
@@ -85,11 +84,11 @@ UUMatter.prototype.start = function()
 
     this.toSpawn = 1;
 
-    this.frames = 0;
     this.playing = true;
 
     var self = this;
 
+    var frames = 0;
     var lastSecond = Date.now();
 
     var loop = function()
@@ -102,10 +101,10 @@ UUMatter.prototype.start = function()
 
             var now = Date.now();
 
-            if(self.toSpawn >= 1 && ++self.frames > (60 / self.toSpawn))
+            if(self.toSpawn >= 1 && ++frames > (60 / self.toSpawn))
             {
                 --self.toSpawn;
-                self.frames = 0;
+                frames = 0;
 
                 self.spawnUU();
             }
