@@ -1,6 +1,6 @@
 # UU-Matter
 
-_v0.2.6_
+_v1.0.0 (beta)_
 
 Attrapez-les tous !
 
