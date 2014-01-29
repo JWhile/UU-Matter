@@ -88,7 +88,6 @@ UUMatter.prototype.start = function()
 
     var self = this;
 
-    var frames = 0;
     var lastSecond = Date.now();
 
     var loop = function()
@@ -100,16 +99,16 @@ UUMatter.prototype.start = function()
             self.fps.next();
 
             var now = Date.now();
+            var diff = now - lastSecond;
 
-            if(self.toSpawn >= 1 && ++frames > (60 / self.toSpawn))
+            if(self.toSpawn >= 1 && diff > (900 / self.toSpawn))
             {
                 --self.toSpawn;
-                frames = 0;
 
                 self.spawnUU();
             }
 
-            if(now - lastSecond >= 1000)
+            if(diff >= 1000)
             {
                 lastSecond = now;
 
