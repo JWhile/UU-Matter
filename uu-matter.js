@@ -157,7 +157,7 @@ UUMatter.prototype.update = function()
         {
             this.uus.splice(i, 1);
 
-            this.toSpawn += 1 / (this.score + 2) * 2 + 1;
+            this.toSpawn += 1 / (this.score + 1) + (this.score / 500) + 0.97;
 
             --i;
 
