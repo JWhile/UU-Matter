@@ -119,7 +119,7 @@ UUMatter.prototype.stop = function()
     }
     else
     {
-        this.menuBestScore.text('DEAD! Score: '+ this.score +((this.bestScore > 0)? ' (Best: '+ this.bestScore +')' : ''));
+        this.menuBestScore.text('Score: '+ this.score +((this.bestScore > 0)? ' (Best: '+ this.bestScore +')' : ''));
     }
 
     this.menu.css('display', 'block');
@@ -218,8 +218,10 @@ function UU(uuMatter)
     this.x = 0; // :int
     this.y = 0; // :int
 
-    this.aX = Math.random() * 2 - 1; // :float
-    this.aY = Math.random() * 2 - 1; // :float
+    this.aX = (Math.random() * 2 - 1) / 16.6; // :float
+    this.aY = (Math.random() * 2 - 1) / 16.6; // :float
+
+    this.lastUpdate = Date.now(); // :long
 
     this.exploded = false; // :boolean
     this.removed = false; // :boolean
@@ -256,7 +258,13 @@ function UU(uuMatter)
 // function update():void
 UU.prototype.update = function()
 {
-    this.setPos(this.x + this.aX, this.y + this.aY)
+    var now = Date.now();
+
+    var diff = now - this.lastUpdate;
+
+    this.setPos(this.aX * diff + this.x, this.aY * diff + this.y);
+
+    this.lastUpdate = now;
 };
 // function explode():void
 UU.prototype.explode = function()
