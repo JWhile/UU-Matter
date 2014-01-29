@@ -23,6 +23,8 @@ function UUMatter()
     this.frames = 0; // :int
     this.playing = false; // :boolean
 
+    this.fps = new FPS(); // :FPS
+
     var self = this;
 
     this.menuBestScore = new Builder('p')
@@ -48,12 +50,18 @@ function UUMatter()
     this.scoreSpan = new Builder('span')
             .className('uu-counter');
 
+    this.fpsSpan = new Builder('span')
+            .css('display', 'none')
+            .text('0 fps')
+            .className('uu-fps');
+
     this.uuFabricator = new Builder('div')
             .className('uu-fabricator');
 
     this.className('uu-matter')
         .append(this.menu)
         .append(this.scoreSpan)
+        .append(this.fpsSpan)
         .append(this.uuFabricator);
 
     this.setScore(0);
@@ -82,11 +90,17 @@ UUMatter.prototype.start = function()
 
     var self = this;
 
+    var lastSecond = Date.now();
+
     var loop = function()
     {
         if(self.playing)
         {
             newFrame(loop);
+
+            self.fps.next();
+
+            var now = Date.now();
 
             if(self.toSpawn >= 1 && ++self.frames > (60 / self.toSpawn))
             {
@@ -96,6 +110,13 @@ UUMatter.prototype.start = function()
                 self.spawnUU();
             }
 
+            if(now - lastSecond >= 1000)
+            {
+                lastSecond = now;
+
+                self.fpsSpan.text(self.fps.getFps() +' fps');
+            }
+
             self.update();
         }
     };
@@ -103,6 +124,8 @@ UUMatter.prototype.start = function()
     newFrame(loop);
 
     this.spawnUU();
+
+    this.fpsSpan.css('display', 'block');
 };
 // function stop():void
 UUMatter.prototype.stop = function()
@@ -123,6 +146,7 @@ UUMatter.prototype.stop = function()
     }
 
     this.menu.css('display', 'block');
+    this.fpsSpan.css('display', 'none');
 };
 // function update():void
 UUMatter.prototype.update = function()
