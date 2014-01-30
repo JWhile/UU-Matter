@@ -257,9 +257,7 @@ function UU(uuMatter)
         {
             if(!this.exploded)
             {
-                self.removed = true;
-
-                self.uuMatter.setScore(self.uuMatter.score + 1);
+                self.click();
 
                 self.className('uu-ghost')
                     .setPos(15, 30);
@@ -279,6 +277,13 @@ function UU(uuMatter)
             }
         });
 }
+// function click():void
+UU.prototype.click = function()
+{
+    this.removed = true;
+
+    this.uuMatter.setScore(this.uuMatter.score + 1);
+};
 // function update():void
 UU.prototype.update = function()
 {
