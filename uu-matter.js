@@ -338,7 +338,7 @@ function Iridium(uuMatter)
 {
     this.super(uuMatter);
 
-    this.css('background-image', 'url("img/iridium.png")');
+    this.css('backgroundImage', 'url("img/iridium.png")');
 }
 // function click():void
 Iridium.prototype.click = function()
