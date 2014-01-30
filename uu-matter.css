@@ -28,10 +28,10 @@ a:hover{
     position:relative;
     display:inline-block;
     margin:70px 0 0 0;
-    background:-webkit-radial-gradient(#adadad,#919191);
-    background:-moz-radial-gradient(#adadad,#919191);
-    background:-o-radial-gradient(#adadad,#919191);
-    background:radial-gradient(#adadad,#919191);
+    background:-webkit-radial-gradient(#8d8d8d,#777);
+    background:-moz-radial-gradient(#8d8d8d,#777);
+    background:-o-radial-gradient(#8d8d8d,#777);
+    background:radial-gradient(#8d8d8d,#777);
     box-shadow:0 0 3px #b11,inset 0 0 2px #700;
     transition:box-shadow .2s;
 }
@@ -88,9 +88,9 @@ a:hover{
         position:absolute;
         top:20px;
         right:40px;
-        text-shadow:1px 1px 0 #ccc;
+        text-shadow:1px 1px 0 #999;
         font-size:12px;
-        color:#777;
+        color:#555;
     }
     .uu-fabricator{
         z-index:99;
@@ -115,7 +115,7 @@ a:hover{
         width:250px;
         height:16px;
         background:url('img/fibre_cable.png') 0 0 repeat-x;
-        box-shadow:0 0 3px #888;
+        box-shadow:0 0 3px #555;
     }
     .uu,.uu-ghost{
         z-index:9;
