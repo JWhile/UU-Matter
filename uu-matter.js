@@ -61,7 +61,9 @@ function UUMatter()
         .append(this.menu)
         .append(this.scoreSpan)
         .append(this.fpsSpan)
-        .append(this.uuFabricator);
+        .append(this.uuFabricator)
+        .append(new Builder('div')
+            .className('fibre-cable'));
 
     this.setScore(0);
 }

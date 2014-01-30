@@ -107,6 +107,16 @@ a:hover{
             background-image:url('img/matter-fabricator_on.png');
             box-shadow:0 0 35px #1FF,inset 0 0 15px #8FF;
         }
+    .fibre-cable{
+        opacity:0.5;
+        position:absolute;
+        top:274px;
+        left:314px;
+        width:250px;
+        height:16px;
+        background:url('img/fibre_cable.png') 0 0 repeat-x;
+        box-shadow:0 0 3px #888;
+    }
     .uu,.uu-ghost{
         z-index:9;
         position:absolute;
