@@ -332,3 +332,19 @@ UU.prototype.setPos = function(x, y)
     return this;
 };
 fus.extend(UU, Builder);
+
+// class Iridium extends UU
+function Iridium(uuMatter)
+{
+    this.super(uuMatter);
+}
+// function click():void
+Iridium.prototype.click = function()
+{
+    this.removed = true;
+
+    this.uuMatter.setScore(this.uuMatter.score + 1);
+
+    this.uuMatter.damage(-2);
+};
+fus.extend(Iridium, UU);
