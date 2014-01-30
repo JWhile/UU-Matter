@@ -337,6 +337,8 @@ fus.extend(UU, Builder);
 function Iridium(uuMatter)
 {
     this.super(uuMatter);
+
+    this.css('background-image', 'url("img/iridium.png")');
 }
 // function click():void
 Iridium.prototype.click = function()
