@@ -214,7 +214,7 @@ UUMatter.prototype.damage = function(damage)
 // function spawnUU():void
 UUMatter.prototype.spawnUU = function()
 {
-    var uu = new UU(this);
+    var uu = (Math.random() <= 0.05)? new Iridium(this) : new UU(this);
 
     var pos = (564 - 32) / 2;
     uu.setPos(pos, pos);
