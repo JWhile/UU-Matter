@@ -134,3 +134,18 @@ a:hover{
          transition-property:top,left;
          transition-duration:.2s;
      }
+.impetus-box{
+    overflow:hidden;
+    margin:50px auto;
+    padding-left:15px;
+    width:550px;
+    background:#eee;
+    border:1px solid #222;
+    box-shadow:0 0 3px #999;
+    text-align:left;
+}
+    .impetus-object{
+        float:right;
+        width:128px;
+        height:128px;
+    }

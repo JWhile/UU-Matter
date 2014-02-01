@@ -19,9 +19,20 @@
 // main
 new UUMatter().insert(document.body);
 
-var impetusObject = Impetus.load('libs/Impetus/Impetus.swf');
+var impetusObject = Impetus.load('libs/Impetus/Impetus.swf', function()
+{
+    impetusBox.css('position', 'absolute')
+        .css('top', '-999px')
+        .css('left', '-999px');
+});
 
-impetusObject.insert(document.body);
+var impetusBox = new Builder('div')
+    .className('impetus-box')
+    .append(impetusObject
+        .className('impetus-object'))
+    .append(new Builder('p')
+        .html('UU-Matter utilise <a href="https://github.com/JWhile/Impetus" target="_blank">Impetus</a> pour le son.<br /><i>Pour profiter du son, veuillez activer Flash</i>'))
+    .insert(document.body);
 
     </script>
 </body>
