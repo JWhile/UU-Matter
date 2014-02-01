@@ -7,3 +7,6 @@
 [submodule "libs/RequestFrame.js"]
 	path = libs/RequestFrame.js
 	url = https://github.com/JWhile/RequestFrame.js.git
+[submodule "libs/Impetus"]
+	path = libs/Impetus
+	url = https://github.com/JWhile/Impetus.git
