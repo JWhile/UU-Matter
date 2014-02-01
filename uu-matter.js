@@ -25,6 +25,7 @@ function UUMatter()
     this.fps = new FPS(); // :FPS
 
     this.bubbleSound = Impetus.getSound('audio/bubble.mp3');
+    this.boomSound = Impetus.getSound('audio/boom.mp3');
 
     var self = this;
 
@@ -318,6 +319,8 @@ UU.prototype.explode = function()
         self.remove();
 
     }, 450);
+
+    this.uuMatter.boomSound.play();
 };
 // function collide(int size):boolean
 UU.prototype.collide = function(size)
