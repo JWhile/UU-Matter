@@ -24,8 +24,9 @@ function UUMatter()
 
     this.fps = new FPS(); // :FPS
 
-    this.bubbleSound = Impetus.getSound('audio/bubble.mp3');
-    this.boomSound = Impetus.getSound('audio/boom.mp3');
+    this.popSound = Impetus.getSound('audio/pop.mp3');
+    this.clickSound = Impetus.getSound('audio/click.mp3');
+    this.hitSound = Impetus.getSound('audio/hit.mp3');
 
     var self = this;
 
@@ -44,6 +45,8 @@ function UUMatter()
                 .event('click', function()
                 {
                     self.start();
+
+                    self.clickSound.play();
                 }))
             .append(new Builder('p')
                 .className('uu-footer')
@@ -129,8 +132,6 @@ UUMatter.prototype.start = function()
     this.spawnUU();
 
     this.fpsSpan.css('display', 'block');
-
-    this.bubbleSound.play();
 };
 // function stop():void
 UUMatter.prototype.stop = function()
@@ -280,7 +281,7 @@ function UU(uuMatter)
 
                 }, 200);
 
-                self.uuMatter.bubbleSound.play();
+                self.uuMatter.popSound.play();
             }
         });
 }
@@ -320,7 +321,7 @@ UU.prototype.explode = function()
 
     }, 450);
 
-    this.uuMatter.boomSound.play();
+    this.uuMatter.hitSound.play();
 };
 // function collide(int size):boolean
 UU.prototype.collide = function(size)
