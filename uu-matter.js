@@ -24,6 +24,8 @@ function UUMatter()
 
     this.fps = new FPS(); // :FPS
 
+    this.bubbleSound = Impetus.getSound('audio/bubble.mp3');
+
     var self = this;
 
     this.menuBestScore = new Builder('p')
@@ -126,6 +128,8 @@ UUMatter.prototype.start = function()
     this.spawnUU();
 
     this.fpsSpan.css('display', 'block');
+
+    this.bubbleSound.play();
 };
 // function stop():void
 UUMatter.prototype.stop = function()
@@ -274,6 +278,8 @@ function UU(uuMatter)
                     }, 450);
 
                 }, 200);
+
+                self.uuMatter.bubbleSound.play();
             }
         });
 }
