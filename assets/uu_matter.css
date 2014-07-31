@@ -17,7 +17,7 @@ body
 	user-select:none;
 }
 
-a,a:visited
+a, a:visited
 {
 	text-decoration:none;
 	color:inherit;
@@ -85,7 +85,8 @@ a:hover
 	color:#bbb;
 }
 
-.uu-counter{
+.uu-counter
+{
 	position:absolute;
 	top:15px;
 	left:30px;
@@ -95,12 +96,14 @@ a:hover
 	font-size:22px;
 }
 
-.uu-canvas{
+.uu-canvas
+{
 	position:absolute;
 	top:0;
 	left:0;
 }
-.uu-fabricator{
+.uu-fabricator
+{
 	z-index:99;
 	position:relative;
 	margin:248px;
@@ -111,12 +114,14 @@ a:hover
 	transition-property:background-image,box-shadow;
 	transition-duration:.35s;
 }
-.on{
+.on
+{
 	background-image:url('img/matter-fabricator_on.png');
 	box-shadow:0 0 35px #1FF,inset 0 0 15px #8FF;
 }
 
-.fibre-cable{
+.fibre-cable
+{
 	opacity:0.5;
 	position:absolute;
 	top:274px;
@@ -127,7 +132,8 @@ a:hover
 	box-shadow:0 0 3px #555;
 }
 
-.uu,.uu-ghost{
+.uu, .uu-ghost
+{
 	z-index:9;
 	position:absolute;
 	width:32px;
@@ -135,11 +141,13 @@ a:hover
 	background:rgba(255,255,255,0.2) url('img/uu-matter.png') center center no-repeat;
 	border-radius:16px;
 }
-.uu{
+.uu
+{
 	transition-property:background-color,opacity;
 	transition-duration:.5s;
 }
-.uu-ghost{
+.uu-ghost
+{
 	opacity:0.8;
 	transition-property:top,left;
 	transition-duration:.2s;
