@@ -6,11 +6,11 @@
  * entity.js
  */
 
-function UUEntity(uuMatter)
+function UUEntity(game)
 {
 	this.super('span');
 
-	this.uuMatter = uuMatter;
+	this.game = game;
 	this.x = 0;
 	this.y = 0;
 	this.aX = (Math.random() * 2 - 1) / 16.6;
@@ -44,7 +44,7 @@ function UUEntity(uuMatter)
 UUEntity.prototype.click = function()
 {
 	this.removed = true;
-	this.uuMatter.setScore(this.uuMatter.score + 1);
+	this.game.setScore(this.game.score + 1);
 };
 UUEntity.prototype.update = function()
 {
@@ -83,15 +83,16 @@ UUEntity.prototype.setPos = function(x, y)
 };
 fus.extend(UUEntity, Builder);
 
-function IridiumEntity(uuMatter)
+function IridiumEntity(game)
 {
-	this.super(uuMatter);
-	this.css('backgroundImage', 'url("img/iridium.png")');
+	this.super(game);
+
+	this.css('backgroundImage', 'url("assets/img/iridium.png")');
 }
 IridiumEntity.prototype.click = function()
 {
 	this.removed = true;
-	this.uuMatter.setScore(this.uuMatter.score + 1);
-	this.uuMatter.damage(-2);
+	this.game.setScore(this.game.score + 1);
+	this.game.damage(-2);
 };
 fus.extend(IridiumEntity, UUEntity);

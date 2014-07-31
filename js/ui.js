@@ -42,7 +42,7 @@ MenuUI.prototype.update = function()
 	if (this.game.score >= this.game.bestScore)
 		this.bestScore.text('New best score: '+ this.game.bestScore);
 	else if (this.game.score > -1)
-		this.bestScore.text('Score: '+ this.game.bestScore +' (Best: '+ this.game.bestScore +')');
+		this.bestScore.text('Score: '+ this.game.score +' (Best: '+ this.game.bestScore +')');
 	else
 		this.bestScore.text('Best score: '+ this.game.bestScore);
 };

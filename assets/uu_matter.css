@@ -7,145 +7,147 @@
  */
 
 body{
-    background:#ccc;
-    text-align:center;
-    font-family:sans-serif;
-    -webkit-touch-callout:none;
-    -webkit-user-select:none;
-    -moz-user-select:none;
-    user-select:none;
+	background:#ccc;
+	text-align:center;
+	font-family:sans-serif;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	user-select:none;
 }
 a,a:visited{
-    text-decoration:none;
-    color:inherit;
+	text-decoration:none;
+	color:inherit;
 }
 a:hover{
-    text-decoration:underline;
+	text-decoration:underline;
+}
+.layout{
+	cursor:pointer;
+	position:relative;
+	margin:70px 0 0 0;
+	display:inline-block;
 }
 .uu-matter{
-    cursor:pointer;
-    overflow:hidden;
-    position:relative;
-    display:inline-block;
-    margin:70px 0 0 0;
-    background:-webkit-radial-gradient(#8d8d8d,#777);
-    background:-moz-radial-gradient(#8d8d8d,#777);
-    background:-o-radial-gradient(#8d8d8d,#777);
-    background:radial-gradient(#8d8d8d,#777);
-    box-shadow:0 0 3px #b11,inset 0 0 2px #700;
-    transition:box-shadow .2s;
+	overflow:hidden;
+	background:-webkit-radial-gradient(#8d8d8d,#777);
+	background:-moz-radial-gradient(#8d8d8d,#777);
+	background:-o-radial-gradient(#8d8d8d,#777);
+	background:radial-gradient(#8d8d8d,#777);
+	box-shadow:0 0 3px #b11,inset 0 0 2px #700;
+	transition:box-shadow .2s;
 }
-    .uu-menu{
-        cursor:default;
-        z-index:999;
-        position:absolute;
-        width:100%;
-        height:100%;
-        background:rgba(0,0,0,0.3) url('img/bg.png');
-    }
-        .uu-menu h1{
-            margin:50px 0;
-            font-size:64px;
-            color:#111111;
-        }
-        .uu-best{
-            margin:0 0 140px 0;
-            font-size:24px;
-            font-weight:bold;
-            color:#131;
-        }
-        .button{
-            cursor:pointer;
-            display:inline-block;
-            margin:15px 0;
-            padding:5px 25px;
-            background:#888;
-            border:1px solid #222;
-        }
-            .button:hover{
-                background:#3f3f3f;
-                box-shadow:inset 0 0 3px #333;
-                color:#bbb;
-            }
-        .uu-footer{
-            position:absolute;
-            right:30px;
-            bottom:15px;
-            text-shadow:1px 1px 0 #616161;
-            font-size:14px;
-            color:#dadada;
-        }
-    .uu-counter{
-        position:absolute;
-        top:15px;
-        left:30px;
-        padding-left:32px;
-        background:url('img/uu-matter.png') 0 center no-repeat;
-        line-height:32px;
-        font-size:22px;
-    }
-    .uu-fps{
-        position:absolute;
-        top:20px;
-        right:40px;
-        text-shadow:1px 1px 0 #999;
-        font-size:12px;
-        color:#555;
-    }
-    .uu-fabricator{
-        z-index:99;
-        position:relative;
-        margin:250px;
-        width:64px;
-        height:64px;
-        background:#8b8b8b url('img/matter-fabricator.png') center center no-repeat;
-        box-shadow:0 0 10px #777;
-        transition-property:background-image,box-shadow;
-        transition-duration:.35s;
-    }
-        .on{
-            background-image:url('img/matter-fabricator_on.png');
-            box-shadow:0 0 35px #1FF,inset 0 0 15px #8FF;
-        }
-    .fibre-cable{
-        opacity:0.5;
-        position:absolute;
-        top:274px;
-        left:314px;
-        width:250px;
-        height:16px;
-        background:url('img/fibre_cable.png') 0 0 repeat-x;
-        box-shadow:0 0 3px #555;
-    }
-    .uu,.uu-ghost{
-        z-index:9;
-        position:absolute;
-        width:32px;
-        height:32px;
-        background:rgba(255,255,255,0.2) url('img/uu-matter.png') center center no-repeat;
-        border-radius:16px;
-    }
-     .uu{
-         transition-property:background-color,opacity;
-         transition-duration:.5s;
-     }
-     .uu-ghost{
-         opacity:0.8;
-         transition-property:top,left;
-         transition-duration:.2s;
-     }
+	.uu-menu{
+		cursor:default;
+		z-index:999;
+		position:absolute;
+		width:100%;
+		height:100%;
+		background:rgba(0,0,0,0.3) url('img/bg.png');
+	}
+		.uu-menu h1{
+			margin:50px 0;
+			font-size:64px;
+			color:#111111;
+		}
+		.uu-best{
+			margin:0 0 140px 0;
+			font-size:24px;
+			font-weight:bold;
+			color:#131;
+		}
+		.button{
+			cursor:pointer;
+			display:inline-block;
+			margin:15px 0;
+			padding:5px 25px;
+			background:#888;
+			border:1px solid #222;
+		}
+			.button:hover{
+				background:#3f3f3f;
+				box-shadow:inset 0 0 3px #333;
+				color:#bbb;
+			}
+		.uu-footer{
+			position:absolute;
+			right:30px;
+			bottom:15px;
+			text-shadow:1px 1px 0 #616161;
+			font-size:14px;
+			color:#dadada;
+		}
+	.uu-counter{
+		position:absolute;
+		top:15px;
+		left:30px;
+		padding-left:32px;
+		background:url('img/uu-matter.png') 0 center no-repeat;
+		line-height:32px;
+		font-size:22px;
+	}
+	.uu-fps{
+		position:absolute;
+		top:20px;
+		right:40px;
+		text-shadow:1px 1px 0 #999;
+		font-size:12px;
+		color:#555;
+	}
+	.uu-fabricator{
+		z-index:99;
+		position:relative;
+		margin:250px;
+		width:64px;
+		height:64px;
+		background:#8b8b8b url('img/matter-fabricator.png') center center no-repeat;
+		box-shadow:0 0 10px #777;
+		transition-property:background-image,box-shadow;
+		transition-duration:.35s;
+	}
+		.on{
+			background-image:url('img/matter-fabricator_on.png');
+			box-shadow:0 0 35px #1FF,inset 0 0 15px #8FF;
+		}
+	.fibre-cable{
+		opacity:0.5;
+		position:absolute;
+		top:274px;
+		left:314px;
+		width:250px;
+		height:16px;
+		background:url('img/fibre_cable.png') 0 0 repeat-x;
+		box-shadow:0 0 3px #555;
+	}
+	.uu,.uu-ghost{
+		z-index:9;
+		position:absolute;
+		width:32px;
+		height:32px;
+		background:rgba(255,255,255,0.2) url('img/uu-matter.png') center center no-repeat;
+		border-radius:16px;
+	}
+	 .uu{
+		 transition-property:background-color,opacity;
+		 transition-duration:.5s;
+	 }
+	 .uu-ghost{
+		 opacity:0.8;
+		 transition-property:top,left;
+		 transition-duration:.2s;
+	 }
 .impetus-box{
-    overflow:hidden;
-    margin:50px auto;
-    padding-left:15px;
-    width:550px;
-    background:#eee;
-    border:1px solid #222;
-    box-shadow:0 0 3px #999;
-    text-align:left;
+	overflow:hidden;
+	margin:50px auto;
+	padding-left:15px;
+	width:550px;
+	background:#eee;
+	border:1px solid #222;
+	box-shadow:0 0 3px #999;
+	text-align:left;
 }
-    .impetus-object{
-        float:right;
-        width:128px;
-        height:128px;
-    }
+	.impetus-object{
+		float:right;
+		width:128px;
+		height:128px;
+	}

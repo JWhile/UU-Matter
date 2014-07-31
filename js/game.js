@@ -18,12 +18,14 @@ function UUMatterGame()
 	this.playing = false;
 	this.fps = new FPS();
 
+	this.className('layout');
+
 	this.menuUI = new MenuUI(this)
 		.insert(this);
 	this.gameUI = new GameUI(this)
 		.insert(this);
 
-	this.setScore(0);
+	this.menuUI.update();
 }
 UUMatterGame.prototype.start = function()
 {
@@ -105,7 +107,7 @@ UUMatterGame.prototype.update = function()
 UUMatterGame.prototype.setScore = function(score)
 {
 	this.score = score;
-	this.gameUI.scoreSpan.css('display', (this.score === 0)? 'none' : 'block').text('x '+ this.score);
+	this.gameUI.scoreSpan.text('x '+ this.score);
 };
 UUMatterGame.prototype.setBestScore = function(score)
 {
@@ -133,7 +135,7 @@ UUMatterGame.prototype.spawnUU = function()
 	var pos = (564 - 32) / 2;
 
 	uu.setPos(pos, pos);
-	this.uus.push(uu.insert(this));
+	this.uus.push(uu.insert(this.gameUI));
 
 	var self = this;
 
