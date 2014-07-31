@@ -16,7 +16,6 @@ function UUMatterGame()
 	this.score = -1;
 	this.toSpawn = 0;
 	this.playing = false;
-	this.fps = new FPS();
 
 	this.className('layout');
 
@@ -53,7 +52,6 @@ UUMatterGame.prototype.start = function()
 		if(self.playing)
 		{
 			newFrame(loop);
-			self.fps.next();
 
 			var now = Date.now();
 			var diff = now - lastSecond;
@@ -66,14 +64,12 @@ UUMatterGame.prototype.start = function()
 			if(diff >= 1000)
 			{
 				lastSecond = now;
-				self.gameUI.fpsSpan.text(self.fps.getFps() +' fps');
 			}
 			self.update();
 		}
 	};
 	newFrame(loop);
 	this.spawnUU();
-	this.gameUI.fpsSpan.css('display', 'block');
 };
 UUMatterGame.prototype.stop = function()
 {
@@ -83,7 +79,6 @@ UUMatterGame.prototype.stop = function()
 		this.setBestScore(this.score);
 	this.menuUI.update();
 	this.menuUI.show();
-	this.gameUI.fpsSpan.css('display', 'none');
 };
 UUMatterGame.prototype.update = function()
 {

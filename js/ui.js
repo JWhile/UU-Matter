@@ -56,11 +56,6 @@ function GameUI(game)
 	this.scoreSpan = new Builder('span')
 		.className('uu-counter')
 		.insert(this);
-	this.fpsSpan = new Builder('span')
-		.css('display', 'none')
-		.text('0 fps')
-		.className('uu-fps')
-		.insert(this);
 	this.uuFabricator = new Builder('div')
 		.className('uu-fabricator')
 		.insert(this);
