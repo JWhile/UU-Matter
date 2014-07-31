@@ -53,6 +53,7 @@ function GameUI(game)
 	this.super('div');
 
 	this.game = game;
+	this.fabricator_timeout = 0;
 	this.score_span = new Builder('span')
 		.className('uu-counter')
 		.insert(this);
@@ -65,12 +66,13 @@ function GameUI(game)
 	this.className('uu-matter');
 	this.background.generate();
 }
-GameUI.prototype.run_frabricator = function()
+GameUI.prototype.run_fabricator = function()
 {
 	var self = this;
 
 	this.uu_fabricator.className('uu-fabricator on');
-	setTimeout(function()
+	clearTimeout(this.fabricator_timeout);
+	this.fabricator_timeout = setTimeout(function()
 	{
 		self.uu_fabricator.className('uu-fabricator');
 	}, 350);
