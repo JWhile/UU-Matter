@@ -13,57 +13,21 @@ function UUMatterGame()
 	this.uus = [];
 	this.bestScore = localStorage && parseInt(localStorage.getItem('UUMatterBestScore')) || 0;
 	this.life = 0;
-	this.score = 0;
+	this.score = -1;
 	this.toSpawn = 0;
 	this.playing = false;
 	this.fps = new FPS();
 
-	var self = this;
-
-	this.menuBestScore = new Builder('p')
-		.text('Best score: '+ this.bestScore)
-		.className('uu-best');
-
-	this.menu = new Builder('div')
-		.className('uu-menu')
-		.append(new Builder('h1')
-			.text('UU-Matter'))
-		.append(this.menuBestScore)
-		.append(new Builder('a')
-			.className('button')
-			.text('Jouer')
-			.event('click', function()
-			{
-				self.start();
-			}))
-		.append(new Builder('p')
-			.className('uu-footer')
-			.html('Créé par <a href="https://github.com/JWhile" target="_blank">juloo</a> - beta 1.1.1'));
-
-	this.scoreSpan = new Builder('span')
-		.className('uu-counter');
-
-	this.fpsSpan = new Builder('span')
-		.css('display', 'none')
-		.text('0 fps')
-		.className('uu-fps');
-
-	this.uuFabricator = new Builder('div')
-		.className('uu-fabricator');
-
-	this.className('uu-matter')
-		.append(this.menu)
-		.append(this.scoreSpan)
-		.append(this.fpsSpan)
-		.append(this.uuFabricator)
-		.append(new Builder('div')
-			.className('fibre-cable'));
+	this.menuUI = new MenuUI(this)
+		.insert(this);
+	this.gameUI = new GameUI(this)
+		.insert(this);
 
 	this.setScore(0);
 }
 UUMatterGame.prototype.start = function()
 {
-	this.menu.css('display', 'none');
+	this.menuUI.hide();
 
 	this.uus = [];
 	this.setScore(0);
@@ -97,28 +61,24 @@ UUMatterGame.prototype.start = function()
 			if(diff >= 1000)
 			{
 				lastSecond = now;
-				self.fpsSpan.text(self.fps.getFps() +' fps');
+				self.gameUI.fpsSpan.text(self.fps.getFps() +' fps');
 			}
 			self.update();
 		}
 	};
 	newFrame(loop);
 	this.spawnUU();
-	this.fpsSpan.css('display', 'block');
+	this.gameUI.fpsSpan.css('display', 'block');
 };
 UUMatterGame.prototype.stop = function()
 {
 	this.playing = false;
-	this.menuBestScore.css('color', '#911');
+	this.menuUI.bestScore.css('color', '#911');
 	if(this.score > this.bestScore)
-	{
 		this.setBestScore(this.score);
-		this.menuBestScore.text('Best score: '+ this.bestScore);
-	}
-	else
-		this.menuBestScore.text('Score: '+ this.score +((this.bestScore > 0)? ' (Best: '+ this.bestScore +')' : ''));
-	this.menu.css('display', 'block');
-	this.fpsSpan.css('display', 'none');
+	this.menuUI.update();
+	this.menuUI.show();
+	this.gameUI.fpsSpan.css('display', 'none');
 };
 UUMatterGame.prototype.update = function()
 {
@@ -145,7 +105,7 @@ UUMatterGame.prototype.update = function()
 UUMatterGame.prototype.setScore = function(score)
 {
 	this.score = score;
-	this.scoreSpan.css('display', (this.score === 0)? 'none' : 'block').text('x '+ this.score);
+	this.gameUI.scoreSpan.css('display', (this.score === 0)? 'none' : 'block').text('x '+ this.score);
 };
 UUMatterGame.prototype.setBestScore = function(score)
 {
@@ -177,10 +137,10 @@ UUMatterGame.prototype.spawnUU = function()
 
 	var self = this;
 
-	this.uuFabricator.className('uu-fabricator on');
+	this.gameUI.uuFabricator.className('uu-fabricator on');
 	setTimeout(function()
 	{
-		self.uuFabricator.className('uu-fabricator');
+		self.gameUI.uuFabricator.className('uu-fabricator');
 	}, 350);
 };
 fus.extend(UUMatterGame, Builder);

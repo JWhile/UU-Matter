@@ -3,7 +3,7 @@
  *
  * Copyright (c) 2014 juloo
  *
- * uu_matter.js
+ * entity.js
  */
 
 function UUEntity(uuMatter)
