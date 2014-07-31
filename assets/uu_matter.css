@@ -95,10 +95,15 @@ a:hover
 	font-size:22px;
 }
 
+.uu-canvas{
+	position:absolute;
+	top:0;
+	left:0;
+}
 .uu-fabricator{
 	z-index:99;
 	position:relative;
-	margin:250px;
+	margin:248px;
 	width:64px;
 	height:64px;
 	background:#8b8b8b url('img/matter-fabricator.png') center center no-repeat;

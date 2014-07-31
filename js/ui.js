@@ -54,13 +54,15 @@ function GameUI(game)
 
 	this.game = game;
 	this.fabricator_timeout = 0;
-	this.score_span = new Builder('span')
-		.className('uu-counter')
+	this.background = new Background()
 		.insert(this);
 	this.uu_fabricator = new Builder('div')
 		.className('uu-fabricator')
 		.insert(this);
-	this.background = new Background()
+	this.score_span = new Builder('span')
+		.className('uu-counter')
+		.insert(this);
+	this.game_canvas = new Canvas()
 		.insert(this);
 
 	this.className('uu-matter');
@@ -89,4 +91,4 @@ GameUI.prototype.update = function()
 			+'0 -'+ size +' 0 #911,'
 			+'inset 0 0 '+ Math.max((20 - this.game.life) * 8, 0) +'px #700');
 };
-fus.extend(GameUI, Canvas);
+fus.extend(GameUI, Builder);
