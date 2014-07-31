@@ -22,6 +22,12 @@ function Background(game)
 	this.sprite = new Image();
 	this.blocks = [];
 
+	var self = this;
+
+	this.sprite.addEventListener('load', function()
+	{
+		self.render();
+	}, false);
 	this.sprite.src = 'assets/img/background.png';
 }
 Background.prototype.render = function()
