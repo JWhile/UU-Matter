@@ -54,7 +54,7 @@ function GameUI(game)
 
 	this.game = game;
 	this.fabricator_timeout = 0;
-	this.background = new Background()
+	this.background = new Background(game)
 		.insert(this);
 	this.uu_fabricator = new Builder('div')
 		.className('uu-fabricator')
