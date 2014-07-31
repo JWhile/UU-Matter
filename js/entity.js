@@ -15,7 +15,7 @@ function UUEntity(game)
 	this.y = 0;
 	this.aX = (Math.random() * 2 - 1) / 16.6;
 	this.aY = (Math.random() * 2 - 1) / 16.6;
-	this.lastUpdate = Date.now();
+	this.last_update = Date.now();
 	this.exploded = false;
 	this.removed = false;
 
@@ -49,10 +49,10 @@ UUEntity.prototype.click = function()
 UUEntity.prototype.update = function()
 {
 	var now = Date.now();
-	var diff = now - this.lastUpdate;
+	var diff = now - this.last_update;
 
 	this.setPos(this.aX * diff + this.x, this.aY * diff + this.y);
-	this.lastUpdate = now;
+	this.last_update = now;
 };
 UUEntity.prototype.explode = function()
 {
@@ -92,7 +92,7 @@ function IridiumEntity(game)
 IridiumEntity.prototype.click = function()
 {
 	this.removed = true;
-	this.game.setScore(this.game.score + 1);
+	this.game.set_score(this.game.score + 1);
 	this.game.damage(-2);
 };
 fus.extend(IridiumEntity, UUEntity);

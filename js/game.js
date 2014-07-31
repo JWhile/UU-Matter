@@ -11,41 +11,39 @@ function UUMatterGame()
 	this.super('div');
 
 	this.uus = [];
-	this.bestScore = localStorage && parseInt(localStorage.getItem('UUMatterBestScore')) || 0;
+	this.best_score = localStorage && parseInt(localStorage.getItem('UUMatterBestScore')) || 0;
 	this.life = 0;
 	this.score = -1;
-	this.toSpawn = 0;
+	this.to_spawn = 0;
 	this.playing = false;
 
 	this.className('layout');
 
-	this.menuUI = new MenuUI(this)
+	this.menu_ui = new MenuUI(this)
 		.insert(this);
-	this.gameUI = new GameUI(this)
+	this.game_ui = new GameUI(this)
 		.insert(this);
 
-	this.menuUI.update();
+	this.menu_ui.update();
 }
 UUMatterGame.prototype.start = function()
 {
-	this.menuUI.hide();
+	this.menu_ui.hide();
 
 	this.uus = [];
 	this.life = 20;
-	this.toSpawn = 1;
+	this.to_spawn = 1;
 	this.playing = true;
 
 	if (score > -1)
-		this.gameUI.background.generate();
-	this.setScore(0);
-	this.gameUI.update();
+		this.game_ui.background.generate();
+	this.set_score(0);
+	this.game_ui.update();
 
 	var self = this;
 
 	for(var i = 0; i < this.uus.length; ++i)
 		this.uus[i].remove();
-
-	var lastSecond = Date.now();
 
 	var loop = function()
 	{
@@ -56,10 +54,10 @@ UUMatterGame.prototype.start = function()
 			var now = Date.now();
 			var diff = now - lastSecond;
 
-			if(self.toSpawn >= 1 && diff > (900 / self.toSpawn))
+			if(self.to_spawn >= 1 && diff > (900 / self.to_spawn))
 			{
-				--self.toSpawn;
-				self.spawnUU();
+				--self.to_spawn;
+				self.spawn_uu();
 			}
 			if(diff >= 1000)
 			{
@@ -69,16 +67,16 @@ UUMatterGame.prototype.start = function()
 		}
 	};
 	newFrame(loop);
-	this.spawnUU();
+	this.spawn_uu();
 };
 UUMatterGame.prototype.stop = function()
 {
 	this.playing = false;
-	this.menuUI.bestScore.css('color', '#911');
-	if(this.score > this.bestScore)
-		this.setBestScore(this.score);
-	this.menuUI.update();
-	this.menuUI.show();
+	this.menu_ui.best_score.css('color', '#911');
+	if(this.score > this.best_score)
+		this.set_best_score(this.score);
+	this.menu_ui.update();
+	this.menu_ui.show();
 };
 UUMatterGame.prototype.update = function()
 {
@@ -88,7 +86,7 @@ UUMatterGame.prototype.update = function()
 		if(uu.removed)
 		{
 			this.uus.splice(i, 1);
-			this.toSpawn += 1 / (this.score + 1) + (this.score / 500) + 0.97;
+			this.to_spawn += 1 / (this.score + 1) + (this.score / 500) + 0.97;
 			--i;
 		}
 		else
@@ -102,16 +100,16 @@ UUMatterGame.prototype.update = function()
 		}
 	}
 };
-UUMatterGame.prototype.setScore = function(score)
+UUMatterGame.prototype.set_score = function(score)
 {
 	this.score = score;
-	this.gameUI.scoreSpan.text('x '+ this.score);
+	this.game_ui.update();
 };
-UUMatterGame.prototype.setBestScore = function(score)
+UUMatterGame.prototype.set_best_score = function(score)
 {
-	this.bestScore = score;
+	this.best_score = score;
 	if(localStorage)
-		localStorage.setItem('UUMatterBestScore', this.bestScore);
+		localStorage.setItem('UUMatterBestScore', this.best_score);
 };
 UUMatterGame.prototype.damage = function(damage)
 {
@@ -122,15 +120,15 @@ UUMatterGame.prototype.damage = function(damage)
 	}
 	else
 		this.life -= damage;
-	this.gameUI.update();
+	this.game_ui.update();
 };
-UUMatterGame.prototype.spawnUU = function()
+UUMatterGame.prototype.spawn_uu = function()
 {
 	var uu = (Math.random() <= 0.05)? new IridiumEntity(this) : new UUEntity(this);
 	var pos = (564 - 32) / 2;
 
 	uu.setPos(pos, pos);
-	this.uus.push(uu.insert(this.gameUI));
-	this.gameUI.runFabricator();
+	this.uus.push(uu.insert(this.game_ui));
+	this.game_ui.run_fabricator();
 };
 fus.extend(UUMatterGame, Builder);

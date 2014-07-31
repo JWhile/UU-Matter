@@ -11,13 +11,13 @@ function MenuUI(game)
 	this.super('div');
 
 	this.game = game;
-	this.bestScore = new Builder('p')
+	this.best_score = new Builder('p')
 		.className('uu-best');
 
 	this.className('uu-menu')
 		.append(new Builder('h1')
 			.text('UU-Matter'))
-		.append(this.bestScore)
+		.append(this.best_score)
 		.append(new Builder('a')
 			.className('button')
 			.text('Jouer')
@@ -39,12 +39,12 @@ MenuUI.prototype.hide = function()
 };
 MenuUI.prototype.update = function()
 {
-	if (this.game.score >= this.game.bestScore)
-		this.bestScore.text('New best score: '+ this.game.bestScore);
+	if (this.game.score >= this.game.best_score)
+		this.best_score.text('New best score: '+ this.game.best_score);
 	else if (this.game.score > -1)
-		this.bestScore.text('Score: '+ this.game.score +' (Best: '+ this.game.bestScore +')');
+		this.best_score.text('Score: '+ this.game.score +' (Best: '+ this.game.best_score +')');
 	else
-		this.bestScore.text('Best score: '+ this.game.bestScore);
+		this.best_score.text('Best score: '+ this.game.best_score);
 };
 fus.extend(MenuUI, Builder);
 
@@ -53,10 +53,10 @@ function GameUI(game)
 	this.super('div');
 
 	this.game = game;
-	this.scoreSpan = new Builder('span')
+	this.score_span = new Builder('span')
 		.className('uu-counter')
 		.insert(this);
-	this.uuFabricator = new Builder('div')
+	this.uu_fabricator = new Builder('div')
 		.className('uu-fabricator')
 		.insert(this);
 	this.background = new Background()
@@ -65,18 +65,19 @@ function GameUI(game)
 	this.className('uu-matter');
 	this.background.generate();
 }
-GameUI.prototype.runFrabricator = function()
+GameUI.prototype.run_frabricator = function()
 {
 	var self = this;
 
-	this.uuFabricator.className('uu-fabricator on');
+	this.uu_fabricator.className('uu-fabricator on');
 	setTimeout(function()
 	{
-		self.uuFabricator.className('uu-fabricator');
+		self.uu_fabricator.className('uu-fabricator');
 	}, 350);
 };
 GameUI.prototype.update = function()
 {
+	this.score_span.text('x '+ this.game.score)
 	var size = this.game.life * 3 +'px';
 
 	this.css('boxShadow', '0 0 '+ Math.max(this.game.life * 6, 4) +'px #322,'
