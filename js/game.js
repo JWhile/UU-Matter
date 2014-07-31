@@ -28,6 +28,7 @@ function UUMatterGame()
 		.insert(this);
 
 	this.menu_ui.update();
+	this.game_ui.background.generate();
 }
 UUMatterGame.prototype.start = function()
 {
@@ -38,7 +39,7 @@ UUMatterGame.prototype.start = function()
 	this.to_spawn = 1;
 	this.playing = true;
 
-	if (score > -1)
+	if (this.score > -1)
 		this.game_ui.background.generate();
 	this.set_score(0);
 	this.game_ui.update();
@@ -48,6 +49,8 @@ UUMatterGame.prototype.start = function()
 	for(var i = 0; i < this.uus.length; ++i)
 		this.uus[i].remove();
 
+	var last_second = Date.now();
+
 	var loop = function()
 	{
 		if(self.playing)
@@ -55,7 +58,7 @@ UUMatterGame.prototype.start = function()
 			newFrame(loop);
 
 			var now = Date.now();
-			var diff = now - lastSecond;
+			var diff = now - last_second;
 
 			if(self.to_spawn >= 1 && diff > (900 / self.to_spawn))
 			{

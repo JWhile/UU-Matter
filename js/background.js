@@ -29,9 +29,9 @@ Background.prototype.render = function()
 	this.context.clearRect(0, 0, this.node.width, this.node.height);
 	for (var y = 0, line; y < this.blocks.length; ++y)
 	{
-		line = this.blocks[1];
+		line = this.blocks[y];
 		for (var x = 0; x < line.length; ++x)
-			this.context.drawImage(this.sprite, line[x] * 32, 0, 32, 32, y * 32, x * 32, 32, 32);
+			this.context.drawImage(this.sprite, line[x] * 32, 0, 32, 32, x * 32, y * 32, 32, 32);
 	}
 };
 Background.prototype.generate = function()
