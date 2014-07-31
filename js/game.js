@@ -32,11 +32,14 @@ UUMatterGame.prototype.start = function()
 	this.menuUI.hide();
 
 	this.uus = [];
-	this.setScore(0);
 	this.life = 20;
-	this.damage(0);
 	this.toSpawn = 1;
 	this.playing = true;
+
+	if (score > -1)
+		this.gameUI.background.generate();
+	this.setScore(0);
+	this.gameUI.update();
 
 	var self = this;
 
@@ -124,10 +127,7 @@ UUMatterGame.prototype.damage = function(damage)
 	}
 	else
 		this.life -= damage;
-
-	var size = this.life * 3 +'px';
-
-	this.css('boxShadow', '0 0 '+ Math.max(this.life * 6, 4) +'px #322,'+ size +' 0 0 #911,0 '+ size +' 0 #911,-'+ size +' 0 0 #911,0 -'+ size +' 0 #911,inset 0 0 '+ Math.max((20 - this.life) * 8, 0) +'px #700')
+	this.gameUI.update();
 };
 UUMatterGame.prototype.spawnUU = function()
 {
@@ -136,13 +136,6 @@ UUMatterGame.prototype.spawnUU = function()
 
 	uu.setPos(pos, pos);
 	this.uus.push(uu.insert(this.gameUI));
-
-	var self = this;
-
-	this.gameUI.uuFabricator.className('uu-fabricator on');
-	setTimeout(function()
-	{
-		self.gameUI.uuFabricator.className('uu-fabricator');
-	}, 350);
+	this.gameUI.runFabricator();
 };
 fus.extend(UUMatterGame, Builder);

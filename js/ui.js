@@ -64,10 +64,31 @@ function GameUI(game)
 	this.uuFabricator = new Builder('div')
 		.className('uu-fabricator')
 		.insert(this);
+	this.background = new Background()
+		.insert(this);
 
 	this.className('uu-matter');
-	new Builder('div')
-		.className('fibre-cable')
-		.insert(this);
+	this.background.generate();
 }
-fus.extend(GameUI, Builder);
+GameUI.prototype.runFrabricator = function()
+{
+	var self = this;
+
+	this.uuFabricator.className('uu-fabricator on');
+	setTimeout(function()
+	{
+		self.uuFabricator.className('uu-fabricator');
+	}, 350);
+};
+GameUI.prototype.update = function()
+{
+	var size = this.game.life * 3 +'px';
+
+	this.css('boxShadow', '0 0 '+ Math.max(this.game.life * 6, 4) +'px #322,'
+			+ size +' 0 0 #911,'
+			+'0 '+ size +' 0 #911,'
+			+'-'+ size +' 0 0 #911,'
+			+'0 -'+ size +' 0 #911,'
+			+'inset 0 0 '+ Math.max((20 - this.game.life) * 8, 0) +'px #700');
+};
+fus.extend(GameUI, Canvas);
