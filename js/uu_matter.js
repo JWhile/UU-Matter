@@ -18,10 +18,6 @@ function UUMatter()
 	this.playing = false;
 	this.fps = new FPS();
 
-	this.popSound = Impetus.getSound('audio/pop.mp3');
-	this.clickSound = Impetus.getSound('audio/click.mp3');
-	this.hitSound = Impetus.getSound('audio/hit.mp3');
-
 	var self = this;
 
 	this.menuBestScore = new Builder('p')
@@ -39,7 +35,6 @@ function UUMatter()
 			.event('click', function()
 			{
 				self.start();
-				self.clickSound.play();
 			}))
 		.append(new Builder('p')
 			.className('uu-footer')
@@ -222,7 +217,6 @@ function UU(uuMatter)
 						self.remove();
 					}, 450);
 				}, 200);
-				self.uuMatter.popSound.play();
 			}
 		});
 }
@@ -252,7 +246,6 @@ UU.prototype.explode = function()
 		self.removed = true;
 		self.remove();
 	}, 450);
-	this.uuMatter.hitSound.play();
 };
 UU.prototype.collide = function(size)
 {
