@@ -6,7 +6,7 @@ Attrapez-les tous !
 
 Tester le mini jeu: [jwhile.github.io](http://jwhile.github.io/#UU-Matter)
 
-![UU-Matter capture](img/capture.png)
+![UU-Matter capture](capture.png)
 
 ### License
 
