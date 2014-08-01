@@ -24,7 +24,7 @@ function UUEntity(game)
 	this.className('uu')
 		.event('mouseup', function()
 		{
-			if(!this.exploded)
+			if (!this.exploded)
 			{
 				self.click();
 				self.className('uu-ghost')

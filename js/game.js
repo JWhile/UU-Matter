@@ -48,7 +48,7 @@ UUMatterGame.prototype.start = function()
 
 	var self = this;
 
-	for(var i = 0; i < this.uus.length; ++i)
+	for (var i = 0; i < this.uus.length; ++i)
 		this.uus[i].remove();
 
 	var last_second = Date.now();
@@ -62,12 +62,12 @@ UUMatterGame.prototype.start = function()
 			var now = Date.now();
 			var diff = now - last_second;
 
-			if(self.to_spawn >= 1 && diff > (900 / self.to_spawn))
+			if (self.to_spawn >= 1 && diff > (900 / self.to_spawn))
 			{
 				--self.to_spawn;
 				self.spawn_uu();
 			}
-			if(diff >= 1000)
+			if (diff >= 1000)
 			{
 				lastSecond = now;
 			}
@@ -88,19 +88,19 @@ UUMatterGame.prototype.stop = function()
 };
 UUMatterGame.prototype.update = function()
 {
-	for(var i = 0, uu; i < this.uus.length; ++i)
+	for (var i = 0, uu; i < this.uus.length; ++i)
 	{
 		uu = this.uus[i];
-		if(uu.removed)
+		if (uu.removed)
 		{
 			this.uus.splice(i, 1);
 			this.to_spawn += 1 / (this.score + 1) + (this.score / 500) + 0.97;
 			--i;
 		}
-		else if(!uu.exploded)
+		else if (!uu.exploded)
 		{
 			uu.update();
-			if(uu.collide(this.global.canvas_size))
+			if (uu.collide(this.global.canvas_size))
 			{
 				uu.explode();
 				this.damage(2);
@@ -116,12 +116,12 @@ UUMatterGame.prototype.set_score = function(score)
 UUMatterGame.prototype.set_best_score = function(score)
 {
 	this.best_score = score;
-	if(localStorage)
+	if (localStorage)
 		localStorage.setItem(this.global.score_storage_key, this.best_score);
 };
 UUMatterGame.prototype.damage = function(damage)
 {
-	if(damage >= this.life)
+	if (damage >= this.life)
 	{
 		this.life = 0;
 		this.stop();
