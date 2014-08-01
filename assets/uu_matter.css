@@ -109,14 +109,14 @@ a:hover
 	margin:248px;
 	width:64px;
 	height:64px;
-	background:#8b8b8b url('img/matter-fabricator.png') center center no-repeat;
+	background:#8b8b8b url('img/matter-fabricator.png') 0 0 no-repeat;
 	box-shadow:0 0 10px #777;
 	transition-property:background-image,box-shadow;
 	transition-duration:.35s;
 }
 .on
 {
-	background-image:url('img/matter-fabricator_on.png');
+	background-position:-64px 0;
 	box-shadow:0 0 35px #1FF,inset 0 0 15px #8FF;
 }
 
