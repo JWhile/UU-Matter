@@ -43,7 +43,7 @@ UUEntity.prototype.explode = function()
 };
 UUEntity.prototype.collide = function(size)
 {
-	size -= 32;
+	size -= this.game.global.uu_size;
 	return (this.x < 0 || this.x > size || this.y < 0 || this.y > size);
 };
 UUEntity.prototype.setPos = function(x, y)
