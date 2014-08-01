@@ -10,22 +10,12 @@ function Background(game)
 {
 	this.super(game);
 
-	this.sprite = new Image();
+	this.sprite = new ImageLoader(this.game.global.blocks_sprite_src);
 	this.blocks = [];
-	this.is_load = false;
-
-	var self = this;
-
-	this.sprite.addEventListener('load', function()
-	{
-		self.is_load = true;
-		self.render();
-	}, false);
-	this.sprite.src = this.game.global.blocks_sprite_src;
 }
 Background.prototype.render = function()
 {
-	if (!this.is_load)
+	if (!this.sprite.is_load)
 		return;
 	this.context.clearRect(0, 0, this.node.width, this.node.height);
 	for (var y = 0, s = this.game.global.blocks_size,
