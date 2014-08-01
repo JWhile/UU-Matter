@@ -6,14 +6,15 @@
  * canvas.js
  */
 
-function Canvas()
+function Canvas(game)
 {
 	this.super('canvas');
 
+	this.game = game;
 	this.context = this.node.getContext('2d');
 
 	this.className('uu-canvas')
-		.set('width', 560)
-		.set('height', 560);
+		.set('width', game.global.canvas_size)
+		.set('height', game.global.canvas_size);
 }
 fus.extend(Canvas, Builder);

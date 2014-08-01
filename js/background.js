@@ -6,19 +6,10 @@
  * background.js
  */
 
-var g_rare_blocks = [
-	{'id': 4, 'chance': 0.2, 'min': 0, 'max': 13},
-	{'id': 3, 'chance': 0.1, 'min': 7, 'max': 14},
-	{'id': 2, 'chance': 0.05, 'min': 10, 'max': 15},
-	{'id': 5, 'chance': 0.01, 'min': 15, 'max': 17},
-	{'id': 6, 'chance': 0.02, 'min': 13, 'max': 16},
-];
-
 function Background(game)
 {
-	this.super();
+	this.super(game);
 
-	this.game = game;
 	this.sprite = new Image();
 	this.blocks = [];
 
@@ -33,27 +24,24 @@ function Background(game)
 Background.prototype.render = function()
 {
 	this.context.clearRect(0, 0, this.node.width, this.node.height);
-	for (var y = 0, line; y < this.blocks.length; ++y)
+	for (var y = 0, s = this.game.global.blocks_size; y < this.blocks.length; ++y)
 	{
-		line = this.blocks[y];
-		for (var x = 0; x < line.length; ++x)
-			this.context.drawImage(this.sprite, line[x] * 32, 0, 32, 32, x * 32, y * 32, 32, 32);
+		for (var x = 0; x < this.blocks[y].length; ++x)
+			this.context.drawImage(this.sprite, this.blocks[y][x] * s, 0, s, s, x * s, y * s, s, s);
 	}
 };
 Background.prototype.generate = function()
 {
-	for (var y = 0, line; y < 17; ++y)
+	for (var y = 0, line, r = this.game.global.rare_blocks; y < 17; ++y)
 	{
 		line = [];
 		for (var x = 0, rand; x < 17; ++x)
 		{
 			rand = Math.random();
-			for (var i = 0; i < g_rare_blocks.length; ++i)
+			for (var i = 0; i < r.length; ++i)
 			{
-				if (rand < g_rare_blocks[i]['chance']
-					&& y >= g_rare_blocks[i]['min']
-					&& y <= g_rare_blocks[i]['max'])
-					line[x] = g_rare_blocks[i]['id'];
+				if (rand < r[i]['chance'] && y >= r[i]['min'] && y <= r[i]['max'])
+					line[x] = r[i]['id'];
 			}
 			if (!line[x])
 				line[x] = 1;

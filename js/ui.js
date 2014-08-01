@@ -62,7 +62,7 @@ function GameUI(game)
 	this.score_span = new Builder('span')
 		.className('uu-counter')
 		.insert(this);
-	this.game_canvas = new Canvas()
+	this.game_canvas = new Canvas(game)
 		.insert(this);
 
 	this.className('uu-matter');

@@ -10,8 +10,10 @@ function UUMatterGame()
 {
 	this.super('div');
 
+	this.global = new Globals();
+
 	this.uus = [];
-	this.best_score = localStorage && parseInt(localStorage.getItem('UUMatterBestScore')) || 0;
+	this.best_score = localStorage && parseInt(localStorage.getItem(this.global.score_storage_key)) || 0;
 	this.life = 0;
 	this.score = -1;
 	this.to_spawn = 0;
@@ -98,7 +100,7 @@ UUMatterGame.prototype.update = function()
 		else
 		{
 			uu.update();
-			if(!uu.exploded && uu.collide(564))
+			if(!uu.exploded && uu.collide(this.global.canvas_size))
 			{
 				uu.explode();
 				this.damage(2);
@@ -115,7 +117,7 @@ UUMatterGame.prototype.set_best_score = function(score)
 {
 	this.best_score = score;
 	if(localStorage)
-		localStorage.setItem('UUMatterBestScore', this.best_score);
+		localStorage.setItem(this.global.score_storage_key, this.best_score);
 };
 UUMatterGame.prototype.damage = function(damage)
 {
@@ -130,8 +132,8 @@ UUMatterGame.prototype.damage = function(damage)
 };
 UUMatterGame.prototype.spawn_uu = function()
 {
-	var uu = (Math.random() <= 0.05)? new IridiumEntity(this) : new UUEntity(this);
-	var pos = (564 - 32) / 2;
+	var uu = (Math.random() <= this.global.iridium_chance)? new IridiumEntity(this) : new UUEntity(this);
+	var pos = (this.global.canvas_size - 32) / 2;
 
 	uu.setPos(pos, pos);
 	this.uus.push(uu.insert(this.game_ui));
