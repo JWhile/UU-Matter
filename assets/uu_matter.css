@@ -58,15 +58,17 @@ a:hover
 .uu-menu h1
 {
 	margin:50px 0;
+	text-shadow:0 0 10px #8FF,0 0 4px #1FF;
 	font-size:64px;
-	color:#111111;
+	color:#1a1510;
 }
 .uu-best
 {
 	margin:0 0 140px 0;
+	text-shadow:0 0 6px #1c1310;
 	font-size:24px;
 	font-weight:bold;
-	color:#131;
+	color:#1df;
 }
 
 .button

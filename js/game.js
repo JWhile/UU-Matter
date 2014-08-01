@@ -76,7 +76,6 @@ UUMatterGame.prototype.start = function()
 UUMatterGame.prototype.stop = function()
 {
 	this.playing = false;
-	this.menu_ui.best_score.css('color', '#911');
 	if(this.score > this.best_score)
 		this.set_best_score(this.score);
 	this.menu_ui.update();
