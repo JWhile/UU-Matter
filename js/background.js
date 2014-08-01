@@ -24,10 +24,17 @@ function Background(game)
 Background.prototype.render = function()
 {
 	this.context.clearRect(0, 0, this.node.width, this.node.height);
-	for (var y = 0, s = this.game.global.blocks_size; y < this.blocks.length; ++y)
+	for (var y = 0, s = this.game.global.blocks_size,
+		nether = this.game.life / this.game.global.max_life * this.blocks.length; y < this.blocks.length; ++y)
 	{
-		for (var x = 0; x < this.blocks[y].length; ++x)
-			this.context.drawImage(this.sprite, this.blocks[y][x] * s, 0, s, s, x * s, y * s, s, s);
+		for (var x = 0, rand; x < this.blocks[y].length; ++x)
+		{
+			rand = Math.random();
+			if (this.game.score > -1 && (y + 1 - nether) > rand)
+				this.context.drawImage(this.sprite, 0, 0, s, s, x * s, y * s, s, s);
+			else
+				this.context.drawImage(this.sprite, this.blocks[y][x] * s, 0, s, s, x * s, y * s, s, s);
+		}
 	}
 };
 Background.prototype.generate = function()

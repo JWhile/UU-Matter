@@ -30,14 +30,13 @@ function UUMatterGame()
 		.insert(this);
 
 	this.menu_ui.update();
-	this.game_ui.background.generate();
 }
 UUMatterGame.prototype.start = function()
 {
 	this.menu_ui.hide();
 
 	this.uus = [];
-	this.life = 20;
+	this.life = this.global.max_life;
 	this.to_spawn = 1;
 	this.playing = true;
 
