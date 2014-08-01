@@ -70,6 +70,15 @@ a:hover
 	font-weight:bold;
 	color:#1df;
 }
+.uu-footer
+{
+	position:absolute;
+	bottom:5px;
+	left:45px;
+	text-shadow:0 0 5px #777, 1px 1px 1px #000, -1px -1px 1px #000;
+	font-size:14px;
+	color:#eed;
+}
 
 .button
 {
@@ -104,6 +113,7 @@ a:hover
 	top:0;
 	left:0;
 }
+
 .uu-fabricator
 {
 	z-index:99;

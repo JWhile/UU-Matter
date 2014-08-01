@@ -25,5 +25,5 @@ function Globals()
 	this.iridium_background_style = 'url("assets/img/iridium.png")';
 	this.iridium_chance = 0.05;
 	this.score_storage_key = 'UUMatterBestScore';
-	this.footer_text = 'Créé par <a href="https://github.com/JWhile" target="_blank">juloo</a> - pre2.0.0';
+	this.footer_text = 'By <a href="https://github.com/JWhile" target="_blank">juloo</a> - pre2.0.0';
 }
