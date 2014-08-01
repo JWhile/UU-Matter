@@ -81,8 +81,11 @@ GameUI.prototype.run_fabricator = function()
 };
 GameUI.prototype.update = function()
 {
-	this.score_span.text('x '+ this.game.score)
-	var size = this.game.life * 3 +'px';
+	this.update_score();
 	this.background.render();
+};
+GameUI.prototype.update_score = function()
+{
+	this.score_span.text('x '+ this.game.score);
 };
 fus.extend(GameUI, Builder);

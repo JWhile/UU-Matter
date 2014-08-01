@@ -110,7 +110,7 @@ UUMatterGame.prototype.update = function()
 UUMatterGame.prototype.set_score = function(score)
 {
 	this.score = score;
-	this.game_ui.update();
+	this.game_ui.update_score();
 };
 UUMatterGame.prototype.set_best_score = function(score)
 {

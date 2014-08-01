@@ -12,17 +12,21 @@ function Background(game)
 
 	this.sprite = new Image();
 	this.blocks = [];
+	this.is_load = false;
 
 	var self = this;
 
 	this.sprite.addEventListener('load', function()
 	{
+		self.is_load = true;
 		self.render();
 	}, false);
 	this.sprite.src = this.game.global.blocks_sprite_src;
 }
 Background.prototype.render = function()
 {
+	if (!this.is_load)
+		return;
 	this.context.clearRect(0, 0, this.node.width, this.node.height);
 	for (var y = 0, s = this.game.global.blocks_size,
 		nether = this.game.life / this.game.global.max_life * this.blocks.length; y < this.blocks.length; ++y)
