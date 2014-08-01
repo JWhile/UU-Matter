@@ -12,6 +12,13 @@ function Background(game)
 
 	this.sprite = new ImageLoader(this.game.global.blocks_sprite_src);
 	this.blocks = [];
+
+	var self = this;
+
+	this.sprite.on_load = function()
+	{
+		self.render();
+	};
 }
 Background.prototype.render = function()
 {
