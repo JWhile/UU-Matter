@@ -8,9 +8,8 @@
 
 function UUEntity(game)
 {
-	this.super('span');
-
 	this.game = game;
+	this.id = 0;
 	this.x = 0;
 	this.y = 0;
 	this.aX = (Math.random() * 2 - 1) / 16.6;
@@ -18,19 +17,6 @@ function UUEntity(game)
 	this.last_update = Date.now();
 	this.exploded = false;
 	this.removed = false;
-
-	var self = this;
-
-	this.className('uu')
-		.event('mouseup', function()
-		{
-			if (!this.exploded)
-			{
-				self.click();
-				self.removed = true;
-				self.remove();
-			}
-		});
 }
 UUEntity.prototype.click = function()
 {
@@ -47,15 +33,12 @@ UUEntity.prototype.update = function()
 UUEntity.prototype.explode = function()
 {
 	this.exploded = true;
-	this.css('backgroundColor', 'rgba(255,10,10,0.7)')
-		.css('backgroundImage', 'none');
 
 	var self = this;
 
 	setTimeout(function()
 	{
 		self.removed = true;
-		self.remove();
 	}, 450);
 };
 UUEntity.prototype.collide = function(size)
@@ -67,17 +50,14 @@ UUEntity.prototype.setPos = function(x, y)
 {
 	this.x = x;
 	this.y = y;
-	this.css('top', this.x +'px')
-		.css('left', this.y +'px');
 	return this;
 };
-fus.extend(UUEntity, Builder);
 
 function IridiumEntity(game)
 {
 	this.super(game);
 
-	this.css('backgroundImage', game.global.iridium_background_style);
+	this.id = 1;
 }
 IridiumEntity.prototype.click = function()
 {

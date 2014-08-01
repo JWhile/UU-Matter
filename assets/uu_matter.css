@@ -131,15 +131,3 @@ a:hover
 	background:url('img/fibre_cable.png') 0 0 repeat-x;
 	box-shadow:0 0 3px #555;
 }
-
-.uu
-{
-	z-index:9;
-	position:absolute;
-	width:32px;
-	height:32px;
-	background:rgba(255,255,255,0.2) url('img/uu-matter.png') center center no-repeat;
-	border-radius:16px;
-	transition-property:background-color,opacity;
-	transition-duration:.5s;
-}

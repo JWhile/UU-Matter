@@ -19,6 +19,9 @@ function Globals()
 	this.blocks_size = 64;
 	this.canvas_size = 560;
 	this.blocks_sprite_src = 'assets/img/background.png';
+	this.uu_image_src = 'assets/img/uu-matter.png';
+	this.iridium_image_src = 'assets/img/iridium.png';
+	this.uu_size = 32;
 	this.iridium_background_style = 'url("assets/img/iridium.png")';
 	this.iridium_chance = 0.05;
 	this.score_storage_key = 'UUMatterBestScore';

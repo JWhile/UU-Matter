@@ -56,13 +56,13 @@ function GameUI(game)
 	this.fabricator_timeout = 0;
 	this.background = new Background(game)
 		.insert(this);
+	this.game_canvas = new GameCanvas(game)
+		.insert(this);
 	this.uu_fabricator = new Builder('div')
 		.className('uu-fabricator')
 		.insert(this);
 	this.score_span = new Builder('span')
 		.className('uu-counter')
-		.insert(this);
-	this.game_canvas = new Canvas(game)
 		.insert(this);
 
 	this.className('uu-matter');
@@ -78,6 +78,10 @@ GameUI.prototype.run_fabricator = function()
 	{
 		self.uu_fabricator.className('uu-fabricator');
 	}, 350);
+};
+GameUI.prototype.render = function()
+{
+	this.game_canvas.render();
 };
 GameUI.prototype.update = function()
 {

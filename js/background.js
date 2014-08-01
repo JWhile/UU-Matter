@@ -25,9 +25,9 @@ Background.prototype.render = function()
 		{
 			rand = Math.random();
 			if (this.game.score > -1 && (y + 1 - nether) > rand)
-				this.context.drawImage(this.sprite, 0, 0, s, s, x * s, y * s, s, s);
+				this.context.drawImage(this.sprite.image, 0, 0, s, s, x * s, y * s, s, s);
 			else
-				this.context.drawImage(this.sprite, this.blocks[y][x] * s, 0, s, s, x * s, y * s, s, s);
+				this.context.drawImage(this.sprite.image, this.blocks[y][x] * s, 0, s, s, x * s, y * s, s, s);
 		}
 	}
 };

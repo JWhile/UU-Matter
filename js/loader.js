@@ -16,7 +16,6 @@ function ImageLoader(url)
 	this.image.addEventListener('load', function()
 	{
 		self.is_load = true;
-		self.render();
 	}, false);
 	this.image.src = url;
 }

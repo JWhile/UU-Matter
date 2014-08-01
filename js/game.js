@@ -47,9 +47,6 @@ UUMatterGame.prototype.start = function()
 
 	var self = this;
 
-	for (var i = 0; i < this.uus.length; ++i)
-		this.uus[i].remove();
-
 	var last_second = Date.now();
 
 	var loop = function()
@@ -106,6 +103,7 @@ UUMatterGame.prototype.update = function()
 			}
 		}
 	}
+	this.game_ui.render();
 };
 UUMatterGame.prototype.set_score = function(score)
 {
@@ -135,7 +133,7 @@ UUMatterGame.prototype.spawn_uu = function()
 	var pos = (this.global.canvas_size - 32) / 2;
 
 	uu.setPos(pos, pos);
-	this.uus.push(uu.insert(this.game_ui));
+	this.uus.push(uu);
 	this.game_ui.run_fabricator();
 };
 fus.extend(UUMatterGame, Builder);
