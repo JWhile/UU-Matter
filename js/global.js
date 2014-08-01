@@ -9,13 +9,13 @@
 function Globals()
 {
 	this.rare_blocks = [
-		{'id': 4, 'chance': 0.15, 'min': 0, 'max': 13},
-		{'id': 3, 'chance': 0.1, 'min': 7, 'max': 14},
-		{'id': 2, 'chance': 0.05, 'min': 10, 'max': 15},
-		{'id': 5, 'chance': 0.01, 'min': 15, 'max': 17},
-		{'id': 6, 'chance': 0.02, 'min': 13, 'max': 16},
+		{'id': 4, 'chance': 0.15, 'min': 0, 'max': 3},
+		{'id': 3, 'chance': 0.1, 'min': 2, 'max': 6},
+		{'id': 2, 'chance': 0.05, 'min': 5, 'max': 7},
+		{'id': 5, 'chance': 0.05, 'min': 7, 'max': 8},
+		{'id': 6, 'chance': 0.05, 'min': 8, 'max': 8},
 	];
-	this.blocks_size = 32;
+	this.blocks_size = 64;
 	this.canvas_size = 560;
 	this.blocks_sprite_src = 'assets/img/background.png';
 	this.iridium_background_style = 'url("assets/img/iridium.png")';
