@@ -97,10 +97,10 @@ UUMatterGame.prototype.update = function()
 			this.to_spawn += 1 / (this.score + 1) + (this.score / 500) + 0.97;
 			--i;
 		}
-		else
+		else if(!uu.exploded)
 		{
 			uu.update();
-			if(!uu.exploded && uu.collide(this.global.canvas_size))
+			if(uu.collide(this.global.canvas_size))
 			{
 				uu.explode();
 				this.damage(2);
