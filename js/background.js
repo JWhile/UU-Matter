@@ -24,7 +24,7 @@ Background.prototype.render = function()
 {
 	if (!this.sprite.is_load)
 		return;
-	this.context.clearRect(0, 0, this.node.width, this.node.height);
+	this.clear();
 	for (var y = 0, s = this.game.global.blocks_size,
 		nether = this.game.life / this.game.global.max_life * this.blocks.length; y < this.blocks.length; ++y)
 	{

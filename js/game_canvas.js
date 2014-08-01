@@ -22,7 +22,8 @@ GameCanvas.prototype.is_load = function()
 GameCanvas.prototype.render = function()
 {
 	if (!this.is_load())
-	this.context.clearRect(0, 0, this.node.width, this.node.height);
+		return;
+	this.clear();
 	for (var i = 0, u, s = this.game.global.uu_size; i < this.game.uus.length; ++i)
 	{
 		u = this.game.uus[i];

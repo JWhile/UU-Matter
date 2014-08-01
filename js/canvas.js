@@ -17,4 +17,8 @@ function Canvas(game)
 		.set('width', game.global.canvas_size)
 		.set('height', game.global.canvas_size);
 }
+Canvas.prototype.clear = function()
+{
+	this.context.clearRect(0, 0, this.game.global.canvas_size, this.game.global.canvas_size);
+};
 fus.extend(Canvas, Builder);
