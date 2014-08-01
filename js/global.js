@@ -13,7 +13,7 @@ function Globals()
 		{'id': 3, 'chance': 0.1, 'min': 2, 'max': 6},
 		{'id': 2, 'chance': 0.05, 'min': 5, 'max': 7},
 		{'id': 5, 'chance': 0.05, 'min': 7, 'max': 8},
-		{'id': 6, 'chance': 0.05, 'min': 8, 'max': 8},
+		{'id': 6, 'chance': 0.05, 'min': 8, 'max': 8}
 	];
 	this.max_life = 20
 	this.blocks_size = 64;
