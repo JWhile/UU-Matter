@@ -87,7 +87,7 @@ function IridiumEntity(game)
 {
 	this.super(game);
 
-	this.css('backgroundImage', 'url("assets/img/iridium.png")');
+	this.css('backgroundImage', game.global.iridium_background_style);
 }
 IridiumEntity.prototype.click = function()
 {

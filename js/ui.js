@@ -27,7 +27,7 @@ function MenuUI(game)
 			}))
 		.append(new Builder('p')
 			.className('uu-footer')
-			.html('Créé par <a href="https://github.com/JWhile" target="_blank">juloo</a> - pre2.0.0'));
+			.html(game.global.footer_text));
 }
 MenuUI.prototype.show = function()
 {

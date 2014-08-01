@@ -19,7 +19,7 @@ function Background(game)
 	{
 		self.render();
 	}, false);
-	this.sprite.src = 'assets/img/background.png';
+	this.sprite.src = this.game.global.block_sprite_src;
 }
 Background.prototype.render = function()
 {
@@ -32,10 +32,11 @@ Background.prototype.render = function()
 };
 Background.prototype.generate = function()
 {
-	for (var y = 0, line, r = this.game.global.rare_blocks; y < 17; ++y)
+	for (var y = 0, line, r = this.game.global.rare_blocks
+		size = this.game.global.canvas_size / this.game.global.blocks_size; y < size; ++y)
 	{
 		line = [];
-		for (var x = 0, rand; x < 17; ++x)
+		for (var x = 0, rand; x < size; ++x)
 		{
 			rand = Math.random();
 			for (var i = 0; i < r.length; ++i)
