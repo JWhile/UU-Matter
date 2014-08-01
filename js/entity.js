@@ -27,24 +27,14 @@ function UUEntity(game)
 			if (!this.exploded)
 			{
 				self.click();
-				self.className('uu-ghost')
-					.setPos(15, 30);
-				setTimeout(function()
-				{
-					self.className('uu')
-						.css('opacity', '0');
-					setTimeout(function()
-					{
-						self.remove();
-					}, 450);
-				}, 200);
+				self.removed = true;
+				self.remove();
 			}
 		});
 }
 UUEntity.prototype.click = function()
 {
-	this.removed = true;
-	this.game.setScore(this.game.score + 1);
+	this.game.set_score(this.game.score + 1);
 };
 UUEntity.prototype.update = function()
 {
@@ -91,8 +81,6 @@ function IridiumEntity(game)
 }
 IridiumEntity.prototype.click = function()
 {
-	this.removed = true;
-	this.game.set_score(this.game.score + 1);
 	this.game.damage(-2);
 };
 fus.extend(IridiumEntity, UUEntity);

@@ -132,7 +132,7 @@ a:hover
 	box-shadow:0 0 3px #555;
 }
 
-.uu, .uu-ghost
+.uu
 {
 	z-index:9;
 	position:absolute;
@@ -140,15 +140,6 @@ a:hover
 	height:32px;
 	background:rgba(255,255,255,0.2) url('img/uu-matter.png') center center no-repeat;
 	border-radius:16px;
-}
-.uu
-{
 	transition-property:background-color,opacity;
 	transition-duration:.5s;
-}
-.uu-ghost
-{
-	opacity:0.8;
-	transition-property:top,left;
-	transition-duration:.2s;
 }
