@@ -10,19 +10,18 @@ function Background(game)
 {
 	this.super(game);
 
-	this.sprite = new ImageLoader(this.game.g.blocks_sprite_src);
 	this.blocks = [];
 
 	var self = this;
 
-	this.sprite.on_load = function()
+	this.this.game.g.background_image.on_load = function()
 	{
 		self.render();
 	};
 }
 Background.prototype.render = function()
 {
-	if (!this.sprite.is_load)
+	if (!this.this.game.g.background_image.is_load)
 		return;
 	this.clear();
 	for (var y = 0, s = this.game.g.blocks_size,
@@ -32,9 +31,9 @@ Background.prototype.render = function()
 		for (var x = 0; x < this.blocks[y].length; ++x)
 		{
 			if (this.game.party != null && this.game.party.score > -1 && (y + 1 - nether) > Math.random())
-				this.context.drawImage(this.sprite.image, 0, 0, s, s, x * s, y * s, s, s);
+				this.context.drawImage(this.this.game.g.background_image.image, 0, 0, s, s, x * s, y * s, s, s);
 			else
-				this.context.drawImage(this.sprite.image, this.blocks[y][x] * s, 0, s, s, x * s, y * s, s, s);
+				this.context.drawImage(this.this.game.g.background_image.image, this.blocks[y][x] * s, 0, s, s, x * s, y * s, s, s);
 		}
 	}
 };

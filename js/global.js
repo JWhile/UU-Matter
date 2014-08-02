@@ -17,17 +17,16 @@ function Globals()
 	];
 	this.max_life = 10;
 	this.iridium_heal = 1;
-	this.blocks_size = 64;
 	this.canvas_size = 560;
+	this.entity_image = {
+		0: new ImageLoader('assets/img/uu-matter.png'),
+		1: new ImageLoader('assets/img/iridium.png')
+	};
 	this.explosion_duration = 370;
-	this.explosion_sprite_size = 32;
-	this.explosion_sprite_length = 10;
-	this.explosion_sprite_src = 'assets/img/explosion.png';
-	this.blocks_sprite_src = 'assets/img/background.png';
-	this.uu_image_src = 'assets/img/uu-matter.png';
-	this.iridium_image_src = 'assets/img/iridium.png';
+	this.explosion_sprite = new Sprite('assets/img/explosion.png', 32, 32, 10);
+	this.blocks_size = 64;
+	this.background_image = new ImageLoader('assets/img/background.png');
 	this.uu_size = 32;
-	this.iridium_background_style = 'url("assets/img/iridium.png")';
 	this.iridium_chance = 0.05;
 	this.score_storage_key = 'UUMatterBestScore';
 	this.footer_text = 'By <a href="https://github.com/JWhile" target="_blank">juloo</a> - v2.0.1';
