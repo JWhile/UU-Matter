@@ -11,8 +11,8 @@ function Party(game)
 	this.game = game;
 
 	this.uus = [];
-	this.life = game.global.max_life;
-	this.max_life = game.global.max_life;
+	this.life = game.g.max_life;
+	this.max_life = game.g.max_life;
 	this.score = 0;
 	this.to_spawn = 1;
 	this.playing = false;
@@ -71,7 +71,7 @@ Party.prototype.update = function()
 		else
 		{
 			uu.update();
-			if (uu.collide(this.game.global.canvas_size))
+			if (uu.collide(this.game.g.canvas_size))
 			{
 				uu.explode();
 				this.damage(uu.damage);
@@ -97,8 +97,8 @@ Party.prototype.damage = function(damage)
 };
 Party.prototype.spawn_uu = function()
 {
-	var uu = (Math.random() <= this.game.global.iridium_chance)? new IridiumEntity(this) : new UUEntity(this);
-	var pos = (this.game.global.canvas_size - 32) / 2;
+	var uu = (Math.random() <= this.game.g.iridium_chance)? new IridiumEntity(this) : new UUEntity(this);
+	var pos = (this.game.g.canvas_size - 32) / 2;
 
 	uu.setPos(pos, pos);
 	this.uus.push(uu);

@@ -10,8 +10,8 @@ function UUMatterGame()
 {
 	this.super('div');
 
-	this.global = new Globals();
-	this.best_score = localStorage && parseInt(localStorage.getItem(this.global.score_storage_key)) || 0;
+	this.g = new Globals();
+	this.best_score = localStorage && parseInt(localStorage.getItem(this.g.score_storage_key)) || 0;
 	this.party = null;
 
 	this.className('layout');
@@ -37,6 +37,6 @@ UUMatterGame.prototype.set_best_score = function(score)
 {
 	this.best_score = score;
 	if (localStorage)
-		localStorage.setItem(this.global.score_storage_key, this.best_score);
+		localStorage.setItem(this.g.score_storage_key, this.best_score);
 };
 fus.extend(UUMatterGame, Builder);

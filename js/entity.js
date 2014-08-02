@@ -38,7 +38,7 @@ UUEntity.prototype.explode = function()
 };
 UUEntity.prototype.collide = function(size)
 {
-	size -= this.party.game.global.uu_size;
+	size -= this.party.game.g.uu_size;
 	return (this.x < 0 || this.x > size || this.y < 0 || this.y > size);
 };
 UUEntity.prototype.setPos = function(x, y)
@@ -58,7 +58,7 @@ function IridiumEntity(party)
 IridiumEntity.prototype.click = function()
 {
 	this.to_remove = true;
-	this.party.max_life += this.party.game.global.iridium_heal;
-	this.party.damage(-this.party.game.global.iridium_heal);
+	this.party.max_life += this.party.game.g.iridium_heal;
+	this.party.damage(-this.party.game.g.iridium_heal);
 };
 fus.extend(IridiumEntity, UUEntity);

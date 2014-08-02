@@ -14,11 +14,11 @@ function Canvas(game)
 	this.context = this.node.getContext('2d');
 
 	this.className('uu-canvas')
-		.set('width', game.global.canvas_size)
-		.set('height', game.global.canvas_size);
+		.set('width', game.g.canvas_size)
+		.set('height', game.g.canvas_size);
 }
 Canvas.prototype.clear = function()
 {
-	this.context.clearRect(0, 0, this.game.global.canvas_size, this.game.global.canvas_size);
+	this.context.clearRect(0, 0, this.game.g.canvas_size, this.game.g.canvas_size);
 };
 fus.extend(Canvas, Builder);

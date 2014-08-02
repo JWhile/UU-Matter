@@ -27,7 +27,7 @@ function MenuUI(game)
 			}))
 		.append(new Builder('p')
 			.className('uu-footer')
-			.html(game.global.footer_text));
+			.html(game.g.footer_text));
 }
 MenuUI.prototype.show = function()
 {

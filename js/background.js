@@ -10,7 +10,7 @@ function Background(game)
 {
 	this.super(game);
 
-	this.sprite = new ImageLoader(this.game.global.blocks_sprite_src);
+	this.sprite = new ImageLoader(this.game.g.blocks_sprite_src);
 	this.blocks = [];
 
 	var self = this;
@@ -25,7 +25,7 @@ Background.prototype.render = function()
 	if (!this.sprite.is_load)
 		return;
 	this.clear();
-	for (var y = 0, s = this.game.global.blocks_size,
+	for (var y = 0, s = this.game.g.blocks_size,
 		nether = (this.game.party != null)? this.game.party.life / this.game.party.max_life * this.blocks.length : 0
 		; y < this.blocks.length; ++y)
 	{
@@ -40,8 +40,8 @@ Background.prototype.render = function()
 };
 Background.prototype.generate = function()
 {
-	for (var y = 0, line, r = this.game.global.rare_blocks,
-		size = this.game.global.canvas_size / this.game.global.blocks_size; y < size; ++y)
+	for (var y = 0, line, r = this.game.g.rare_blocks,
+		size = this.game.g.canvas_size / this.game.g.blocks_size; y < size; ++y)
 	{
 		line = [];
 		for (var x = 0, rand; x < size; ++x)
