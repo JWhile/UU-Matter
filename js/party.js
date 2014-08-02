@@ -62,13 +62,13 @@ Party.prototype.update = function()
 	for (var i = 0, uu; i < this.uus.length; ++i)
 	{
 		uu = this.uus[i];
-		if (uu.removed)
+		if (uu.to_remove)
 		{
 			this.uus.splice(i, 1);
 			this.to_spawn += 1 / (this.score + 1) + (this.score / 500) + 0.97;
 			--i;
 		}
-		else if (!uu.exploded)
+		else
 		{
 			uu.update();
 			if (uu.collide(this.game.global.canvas_size))

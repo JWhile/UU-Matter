@@ -30,11 +30,7 @@ GameCanvas.prototype.click = function(x, y)
 		if (x > u.x && x < (u.x + s)
 			&& y > u.y && y < (u.y + s))
 		{
-			if (!u.exploded)
-			{
-				u.click();
-				u.removed = true;
-			}
+			u.click();
 			return;
 		}
 	}

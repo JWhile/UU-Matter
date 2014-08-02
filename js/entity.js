@@ -15,12 +15,12 @@ function UUEntity(party)
 	this.aX = (Math.random() * 2 - 1) / 16.6;
 	this.aY = (Math.random() * 2 - 1) / 16.6;
 	this.last_update = Date.now();
-	this.exploded = false;
 	this.damage = 1;
-	this.removed = false;
+	this.to_remove = false;
 }
 UUEntity.prototype.click = function()
 {
+	this.to_remove = true;
 	this.party.set_score(this.party.score + 1);
 };
 UUEntity.prototype.update = function()
@@ -33,14 +33,7 @@ UUEntity.prototype.update = function()
 };
 UUEntity.prototype.explode = function()
 {
-	this.exploded = true;
-
-	var self = this;
-
-	setTimeout(function()
-	{
-		self.removed = true;
-	}, 450);
+	this.to_remove = true;
 };
 UUEntity.prototype.collide = function(size)
 {
@@ -63,6 +56,7 @@ function IridiumEntity(party)
 }
 IridiumEntity.prototype.click = function()
 {
+	this.to_remove = true;
 	this.party.max_life += this.party.game.global.iridium_heal;
 	this.party.damage(-this.party.game.global.iridium_heal);
 };
