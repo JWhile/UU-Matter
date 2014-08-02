@@ -26,7 +26,7 @@ Background.prototype.render = function()
 		return;
 	this.clear();
 	for (var y = 0, s = this.game.global.blocks_size,
-		nether = (this.game.party != null)? this.game.party.life / this.game.global.max_life * this.blocks.length : 0
+		nether = (this.game.party != null)? this.game.party.life / this.game.party.max_life * this.blocks.length : 0
 		; y < this.blocks.length; ++y)
 	{
 		for (var x = 0; x < this.blocks[y].length; ++x)

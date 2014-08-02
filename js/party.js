@@ -12,6 +12,7 @@ function Party(game)
 
 	this.uus = [];
 	this.life = game.global.max_life;
+	this.max_life = game.global.max_life;
 	this.score = 0;
 	this.to_spawn = 1;
 	this.playing = false;

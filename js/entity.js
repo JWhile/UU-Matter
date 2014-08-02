@@ -63,6 +63,7 @@ function IridiumEntity(party)
 }
 IridiumEntity.prototype.click = function()
 {
+	this.party.max_life += this.party.game.global.iridium_heal;
 	this.party.damage(-this.party.game.global.iridium_heal);
 };
 fus.extend(IridiumEntity, UUEntity);
