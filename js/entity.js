@@ -6,9 +6,9 @@
  * entity.js
  */
 
-function UUEntity(game)
+function UUEntity(party)
 {
-	this.game = game;
+	this.party = party;
 	this.id = 0;
 	this.x = 0;
 	this.y = 0;
@@ -21,7 +21,7 @@ function UUEntity(game)
 }
 UUEntity.prototype.click = function()
 {
-	this.game.set_score(this.game.score + 1);
+	this.party.set_score(this.party.score + 1);
 };
 UUEntity.prototype.update = function()
 {
@@ -44,7 +44,7 @@ UUEntity.prototype.explode = function()
 };
 UUEntity.prototype.collide = function(size)
 {
-	size -= this.game.global.uu_size;
+	size -= this.party.game.global.uu_size;
 	return (this.x < 0 || this.x > size || this.y < 0 || this.y > size);
 };
 UUEntity.prototype.setPos = function(x, y)
@@ -54,15 +54,15 @@ UUEntity.prototype.setPos = function(x, y)
 	return this;
 };
 
-function IridiumEntity(game)
+function IridiumEntity(party)
 {
-	this.super(game);
+	this.super(party);
 
 	this.id = 1;
 	this.damage = 2;
 }
 IridiumEntity.prototype.click = function()
 {
-	this.game.damage(-this.game.global.iridium_heal);
+	this.party.damage(-this.party.game.global.iridium_heal);
 };
 fus.extend(IridiumEntity, UUEntity);

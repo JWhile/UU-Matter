@@ -23,7 +23,7 @@ function MenuUI(game)
 			.text('Jouer')
 			.event('click', function()
 			{
-				game.start();
+				game.new_party();
 			}))
 		.append(new Builder('p')
 			.className('uu-footer')
@@ -39,10 +39,10 @@ MenuUI.prototype.hide = function()
 };
 MenuUI.prototype.update = function()
 {
-	if (this.game.score >= this.game.best_score)
-		this.best_score.text('New best score: '+ this.game.best_score);
-	else if (this.game.score > -1)
-		this.best_score.text('Score: '+ this.game.score +' (Best: '+ this.game.best_score +')');
+	if (this.game.party != null && this.game.party.score >= this.game.best_score)
+		this.best_score.text('New best score: '+ this.game.party.score);
+	else if (this.game.party != null && this.game.party.score > -1)
+		this.best_score.text('Score: '+ this.game.party.score +' (Best: '+ this.game.best_score +')');
 	else
 		this.best_score.text('Best score: '+ this.game.best_score);
 };
@@ -90,6 +90,6 @@ GameUI.prototype.update = function()
 };
 GameUI.prototype.update_score = function()
 {
-	this.score_span.text('x '+ this.game.score);
+	this.score_span.text('x '+ this.game.party.score);
 };
 fus.extend(GameUI, Builder);

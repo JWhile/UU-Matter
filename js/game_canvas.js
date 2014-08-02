@@ -24,9 +24,9 @@ function GameCanvas(game)
 }
 GameCanvas.prototype.click = function(x, y)
 {
-	for (var i = 0, u, s = this.game.global.uu_size; i < this.game.uus.length; ++i)
+	for (var i = 0, u, s = this.game.global.uu_size; i < this.game.party.uus.length; ++i)
 	{
-		u = this.game.uus[i];
+		u = this.game.party.uus[i];
 		if (x > u.x && x < (u.x + s)
 			&& y > u.y && y < (u.y + s))
 		{
@@ -48,9 +48,9 @@ GameCanvas.prototype.render = function()
 	if (!this.is_load())
 		return;
 	this.clear();
-	for (var i = 0, u, s = this.game.global.uu_size; i < this.game.uus.length; ++i)
+	for (var i = 0, u, s = this.game.global.uu_size; i < this.game.party.uus.length; ++i)
 	{
-		u = this.game.uus[i];
+		u = this.game.party.uus[i];
 		this.context.drawImage(this.texture[u.id].image, 0, 0, s, s, u.x, u.y, s, s);
 	}
 };

@@ -26,12 +26,12 @@ Background.prototype.render = function()
 		return;
 	this.clear();
 	for (var y = 0, s = this.game.global.blocks_size,
-		nether = this.game.life / this.game.global.max_life * this.blocks.length; y < this.blocks.length; ++y)
+		nether = (this.game.party != null)? this.game.party.life / this.game.global.max_life * this.blocks.length : 0
+		; y < this.blocks.length; ++y)
 	{
-		for (var x = 0, rand; x < this.blocks[y].length; ++x)
+		for (var x = 0; x < this.blocks[y].length; ++x)
 		{
-			rand = Math.random();
-			if (this.game.score > -1 && (y + 1 - nether) > rand)
+			if (this.game.party != null && this.game.party.score > -1 && (y + 1 - nether) > Math.random())
 				this.context.drawImage(this.sprite.image, 0, 0, s, s, x * s, y * s, s, s);
 			else
 				this.context.drawImage(this.sprite.image, this.blocks[y][x] * s, 0, s, s, x * s, y * s, s, s);
