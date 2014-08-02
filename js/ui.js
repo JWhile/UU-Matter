@@ -56,6 +56,9 @@ function GameUI(game)
 	this.fabricator_timeout = 0;
 	this.background = new Background(game)
 		.insert(this);
+	this.fibre_cable = new Builder('div')
+		.className('fibre-cable')
+		.insert(this);
 	this.game_canvas = new GameCanvas(game)
 		.insert(this);
 	this.uu_fabricator = new Builder('div')

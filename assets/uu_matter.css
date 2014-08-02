@@ -136,10 +136,10 @@ a:hover
 {
 	opacity:0.5;
 	position:absolute;
-	top:274px;
-	left:314px;
+	top:273px;
+	left:310px;
 	width:250px;
 	height:16px;
-	background:url('img/fibre_cable.png') 0 0 repeat-x;
-	box-shadow:0 0 3px #555;
+	background:rgba(255, 255, 255, 0.1) url('img/fibre_cable.png') 0 0 repeat-x;
+	box-shadow:0 0 4px #111;
 }
