@@ -1,10 +1,8 @@
 # UU-Matter
 
-_v1.1.1 (beta)_
+_v2.0.1_
 
-Attrapez-les tous !
-
-Tester le mini jeu: [jwhile.github.io](http://jwhile.github.io/#UU-Matter)
+[Test](http://jwhile.github.io/#UU-Matter)
 
 ![UU-Matter capture](capture.png)
 
