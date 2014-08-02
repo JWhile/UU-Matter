@@ -76,10 +76,12 @@ GameUI.prototype.run_fabricator = function()
 	var self = this;
 
 	this.uu_fabricator.className('uu-fabricator on');
+	this.fibre_cable.className('fibre-cable on');
 	clearTimeout(this.fabricator_timeout);
 	this.fabricator_timeout = setTimeout(function()
 	{
 		self.uu_fabricator.className('uu-fabricator');
+		self.fibre_cable.className('fibre-cable');
 	}, 350);
 };
 GameUI.prototype.render = function()

@@ -123,10 +123,10 @@ a:hover
 	height:64px;
 	background:#8b8b8b url('img/matter-fabricator.png') 0 0 no-repeat;
 	box-shadow:0 0 10px #777;
-	transition-property:background-image,box-shadow;
+	transition-property:box-shadow;
 	transition-duration:.35s;
 }
-.on
+.uu-fabricator.on
 {
 	background-position:-64px 0;
 	box-shadow:0 0 35px #1FF,inset 0 0 15px #8FF;
@@ -142,4 +142,11 @@ a:hover
 	height:16px;
 	background:rgba(255, 255, 255, 0.1) url('img/fibre_cable.png') 0 0 repeat-x;
 	box-shadow:0 0 4px #111;
+	transition-property:background-color, box-shadow;
+	transition-duration:.25s;
+}
+.fibre-cable.on
+{
+	background-color:rgba(0,0,0,0.1);
+	box-shadow:0 0 4px #111, inset 0 0 5px #1ff;
 }
