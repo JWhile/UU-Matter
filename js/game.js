@@ -98,7 +98,7 @@ UUMatterGame.prototype.update = function()
 			if (uu.collide(this.global.canvas_size))
 			{
 				uu.explode();
-				this.damage(2);
+				this.damage(uu.damage);
 			}
 		}
 	}
@@ -117,13 +117,12 @@ UUMatterGame.prototype.set_best_score = function(score)
 };
 UUMatterGame.prototype.damage = function(damage)
 {
-	if (damage >= this.life)
+	this.life -= damage;
+	if (this.life <= 0)
 	{
 		this.life = 0;
 		this.stop();
 	}
-	else
-		this.life -= damage;
 	this.game_ui.update();
 };
 UUMatterGame.prototype.spawn_uu = function()

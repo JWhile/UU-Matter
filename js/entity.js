@@ -16,6 +16,7 @@ function UUEntity(game)
 	this.aY = (Math.random() * 2 - 1) / 16.6;
 	this.last_update = Date.now();
 	this.exploded = false;
+	this.damage = 1;
 	this.removed = false;
 }
 UUEntity.prototype.click = function()
@@ -58,9 +59,10 @@ function IridiumEntity(game)
 	this.super(game);
 
 	this.id = 1;
+	this.damage = 2;
 }
 IridiumEntity.prototype.click = function()
 {
-	this.game.damage(-2);
+	this.game.damage(-this.game.global.iridium_heal);
 };
 fus.extend(IridiumEntity, UUEntity);

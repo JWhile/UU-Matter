@@ -15,7 +15,8 @@ function Globals()
 		{'id': 5, 'chance': 0.05, 'min': 7, 'max': 8},
 		{'id': 6, 'chance': 0.05, 'min': 8, 'max': 8}
 	];
-	this.max_life = 20
+	this.max_life = 10;
+	this.iridium_heal = 1;
 	this.blocks_size = 64;
 	this.canvas_size = 560;
 	this.blocks_sprite_src = 'assets/img/background.png';
