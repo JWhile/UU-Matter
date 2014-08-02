@@ -29,5 +29,5 @@ function Globals()
 	this.uu_size = 32;
 	this.iridium_chance = 0.05;
 	this.score_storage_key = 'UUMatterBestScore';
-	this.footer_text = 'By <a href="https://github.com/JWhile" target="_blank">juloo</a> - v2.0.1';
+	this.footer_text = 'By <a href="https://github.com/JWhile" target="_blank">juloo</a> - v2.0.2';
 }
