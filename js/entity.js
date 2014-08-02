@@ -33,6 +33,7 @@ UUEntity.prototype.update = function()
 };
 UUEntity.prototype.explode = function()
 {
+	this.party.game.game_ui.game_canvas.explosion(this.x, this.y);
 	this.to_remove = true;
 };
 UUEntity.prototype.collide = function(size)

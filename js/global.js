@@ -19,6 +19,10 @@ function Globals()
 	this.iridium_heal = 1;
 	this.blocks_size = 64;
 	this.canvas_size = 560;
+	this.explosion_duration = 370;
+	this.explosion_sprite_size = 32;
+	this.explosion_sprite_length = 10;
+	this.explosion_sprite_src = 'assets/img/explosion.png';
 	this.blocks_sprite_src = 'assets/img/background.png';
 	this.uu_image_src = 'assets/img/uu-matter.png';
 	this.iridium_image_src = 'assets/img/iridium.png';

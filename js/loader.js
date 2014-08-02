@@ -22,3 +22,17 @@ function ImageLoader(url)
 	}, false);
 	this.image.src = url;
 }
+
+function Sprite(url, size_x, size_y, length)
+{
+	this.super(url);
+
+	this.size_x = size_x;
+	this.size_y = size_y;
+	this.length = length;
+}
+Sprite.prototype.draw = function(context, x, y, index)
+{
+	context.drawImage(this.image, this.size_x * index, 0, this.size_x, this.size_y, x, y, this.size_x, this.size_y);
+};
+fus.extend(Sprite, ImageLoader);

@@ -14,6 +14,8 @@ function GameCanvas(game)
 		0: new ImageLoader(this.game.global.uu_image_src),
 		1: new ImageLoader(this.game.global.iridium_image_src)
 	};
+	this.explosion_sprite = new Sprite(this.game.global.explosion_sprite_src, this.game.global.explosion_sprite_size, this.game.global.explosion_sprite_size, this.game.global.explosion_sprite_length);
+	this.anims = [];
 
 	var self = this;
 
@@ -22,6 +24,10 @@ function GameCanvas(game)
 		self.click(e.offsetX, e.offsetY);
 	}, false);
 }
+GameCanvas.prototype.explosion = function(x, y)
+{
+	this.anims.push(new Animation(this.game.global.explosion_duration, this.explosion_sprite, x, y));
+};
 GameCanvas.prototype.click = function(x, y)
 {
 	for (var i = 0, u, s = this.game.global.uu_size; i < this.game.party.uus.length; ++i)
@@ -44,6 +50,12 @@ GameCanvas.prototype.render = function()
 	if (!this.is_load())
 		return;
 	this.clear();
+	for (var i = 0; i < this.anims.length; ++i)
+	{
+		this.anims[i].render(this.context);
+		if (this.anims[i].is_finish)
+			this.anims.splice(i--, 1);
+	}
 	for (var i = 0, u, s = this.game.global.uu_size; i < this.game.party.uus.length; ++i)
 	{
 		u = this.game.party.uus[i];
