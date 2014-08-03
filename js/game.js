@@ -18,9 +18,6 @@ function UUMatterGame()
 
 	this.layout = new Builder('div')
 		.className('layout');
-	this.cache = new Builder('div')
-		.css('display', 'none')
-		.insert(this.layout);
 	this.background = new Background(this)
 		.insert(this);
 	this.menu_ui = new MenuUI(this)

@@ -30,25 +30,20 @@ a:hover
 
 .uu-matter
 {
-	background:-webkit-radial-gradient(#8d8d8d,#777);
-	background:-moz-radial-gradient(#8d8d8d,#777);
-	background:-o-radial-gradient(#8d8d8d,#777);
-	background:radial-gradient(#8d8d8d,#777);
+	background:#8d8d8d;
 }
 
 .layout
 {
 	cursor:pointer;
 	position:relative;
-	margin:70px 0 0 0;
 	display:inline-block;
+	box-shadow:1px 1px 6px #1ff, -1px -1px 6px #1ff,inset 0 0 3px #8ff;
 }
 
 .uu-game
 {
 	overflow:hidden;
-	box-shadow:0 0 3px #b11,inset 0 0 2px #700;
-	transition:box-shadow .2s;
 }
 
 .uu-menu
@@ -58,12 +53,12 @@ a:hover
 	position:absolute;
 	width:100%;
 	height:100%;
-	background:rgba(0,0,0,0.3) url('img/bg.png');
+	background:rgba(0, 0, 0, 0.3) url('img/bg.png');
 }
 .uu-menu h1
 {
 	margin:50px 0;
-	text-shadow:0 0 10px #8FF,0 0 4px #1FF;
+	text-shadow:0 0 10px #8ff,0 0 4px #1ff;
 	font-size:64px;
 	color:#1a1510;
 }
@@ -137,7 +132,7 @@ a:hover
 .uu-fabricator.on
 {
 	background-position:-64px 0;
-	box-shadow:0 0 35px #1FF,inset 0 0 15px #8FF;
+	box-shadow:0 0 35px #1ff,inset 0 0 15px #8ff;
 }
 
 .fibre-cable
@@ -155,6 +150,6 @@ a:hover
 }
 .fibre-cable.on
 {
-	background-color:rgba(0,0,0,0.1);
+	background-color:rgba(0, 0, 0, 0.1);
 	box-shadow:0 0 4px #111, inset 0 0 5px #1ff;
 }
