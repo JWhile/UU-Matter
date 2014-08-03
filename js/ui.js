@@ -11,20 +11,29 @@ function MenuUI(game)
 	this.super('div');
 
 	this.game = game;
+	this.blink_timeout = 0;
 	this.best_score = new Builder('p')
 		.className('uu-best');
+	this.play_button = new Builder('a')
+		.className('button')
+		.event('click', function()
+		{
+			game.play();
+		});
+	this.stop_button = new Builder('a')
+		.className('button')
+		.text(this.game.g.stop_button_text)
+		.event('click', function()
+		{
+			game.stop();
+		});
 
 	this.className('uu-menu')
 		.append(new Builder('h1')
 			.text('UU-Matter'))
 		.append(this.best_score)
-		.append(new Builder('a')
-			.className('button')
-			.text('Jouer')
-			.event('click', function()
-			{
-				game.new_party();
-			}))
+		.append(this.play_button)
+		.append(this.stop_button)
 		.append(new Builder('p')
 			.className('uu-footer')
 			.html(game.g.footer_text));
@@ -45,6 +54,30 @@ MenuUI.prototype.update = function()
 		this.best_score.text('Score: '+ this.game.party.score +' (Best: '+ this.game.best_score +')');
 	else
 		this.best_score.text('Best score: '+ this.game.best_score);
+	if (this.game.party != null && this.game.party.paused)
+	{
+		this.play_button.text(this.game.g.pause_button_text);
+		this.stop_button.css('display', 'block');
+
+		var self = this;
+		var state = true;
+
+		this.blink_timeout = setInterval(function()
+		{
+			if (state)
+				self.best_score.css('opacity', '0');
+			else
+				self.best_score.css('opacity', '1');
+			state = !state;
+		}, this.game.g.score_blink_interval);
+	}
+	else
+	{
+		this.play_button.text(this.game.g.play_button_text);
+		this.stop_button.css('display', 'none');
+		this.best_score.css('opacity', '1');
+		clearTimeout(this.blink_timeout);
+	}
 };
 fus.extend(MenuUI, Builder);
 

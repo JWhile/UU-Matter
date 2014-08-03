@@ -16,38 +16,44 @@ function Party(game)
 	this.score = 0;
 	this.to_spawn = 1;
 	this.playing = false;
+	this.paused = false;
+	this.last_second = Date.now();
 }
 Party.prototype.start = function()
 {
 	this.game.menu_ui.hide();
 	this.game.game_ui.update();
+	this.paused = false;
 	this.playing = true;
 
 	var self = this;
 
-	var last_second = Date.now();
-
 	var loop = function()
 	{
-		if(self.playing)
+		if(!self.playing || self.paused)
+			return;
+		newFrame(loop);
+
+		var now = Date.now();
+		var diff = now - self.last_second;
+
+		if (self.to_spawn >= 1 && diff > (900 / self.to_spawn))
 		{
-			newFrame(loop);
-
-			var now = Date.now();
-			var diff = now - last_second;
-
-			if (self.to_spawn >= 1 && diff > (900 / self.to_spawn))
-			{
-				--self.to_spawn;
-				self.spawn_uu();
-			}
-			if (diff >= 1000)
-				lastSecond = now;
-			self.update();
+			--self.to_spawn;
+			self.spawn_uu();
 		}
+		if (diff >= 1000)
+			lastSecond = now;
+		self.update();
 	};
 	newFrame(loop);
 	this.spawn_uu();
+};
+Party.prototype.pause = function()
+{
+	this.paused = true;
+	this.game.menu_ui.update();
+	this.game.menu_ui.show();
 };
 Party.prototype.stop = function()
 {

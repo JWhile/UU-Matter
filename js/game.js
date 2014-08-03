@@ -26,12 +26,22 @@ function UUMatterGame()
 
 	this.menu_ui.update();
 }
-UUMatterGame.prototype.new_party = function()
+UUMatterGame.prototype.play = function()
+{
+	if (this.party != null && this.party.paused)
+		this.party.start();
+	else
+	{
+		if (this.party != null)
+			this.game_ui.background.generate();
+		this.party = new Party(this);
+		this.party.start();
+	}
+};
+UUMatterGame.prototype.stop = function()
 {
 	if (this.party != null)
-		this.game_ui.background.generate();
-	this.party = new Party(this);
-	this.party.start();
+		this.party.stop();
 };
 UUMatterGame.prototype.set_best_score = function(score)
 {

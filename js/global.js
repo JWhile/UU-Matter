@@ -29,5 +29,9 @@ function Globals()
 	this.uu_size = 32;
 	this.iridium_chance = 0.05;
 	this.score_storage_key = 'UUMatterBestScore';
+	this.score_blink_interval = 750;
+	this.play_button_text = 'Jouer';
+	this.pause_button_text = 'Reprendre';
+	this.stop_button_text = 'Stop';
 	this.footer_text = 'By <a href="https://github.com/JWhile" target="_blank">juloo</a> - v2.0.2';
 }
