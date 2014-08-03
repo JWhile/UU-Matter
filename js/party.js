@@ -21,6 +21,8 @@ function Party(game)
 }
 Party.prototype.start = function()
 {
+	if (!this.paused)
+		this.game.game_ui.render_background();
 	this.paused = false;
 	this.playing = true;
 	this.game.menu_ui.hide();
@@ -98,7 +100,7 @@ Party.prototype.update = function()
 Party.prototype.set_score = function(score)
 {
 	this.score = score;
-	this.game.game_ui.update_score();
+	this.game.game_ui.update();
 };
 Party.prototype.damage = function(damage)
 {
@@ -109,6 +111,7 @@ Party.prototype.damage = function(damage)
 		this.stop();
 	}
 	this.game.game_ui.update();
+	this.game.game_ui.render_background();
 };
 Party.prototype.spawn_uu = function()
 {

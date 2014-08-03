@@ -22,6 +22,9 @@ Animation.prototype.render = function(context)
 		return;
 	this.progress = (Date.now() - this.start) / this.duration;
 	if (this.progress >= 1)
+	{
+		this.progress = 1;
 		this.is_finish = true;
+	}
 	this.sprite.draw(context, this.x, this.y, Math.round(this.progress * this.sprite.length));
 };

@@ -11,9 +11,9 @@ function Globals()
 	this.rare_blocks = [
 		{'id': 4, 'chance': 0.15, 'min': 0, 'max': 3},
 		{'id': 3, 'chance': 0.1, 'min': 2, 'max': 6},
-		{'id': 2, 'chance': 0.05, 'min': 5, 'max': 7},
-		{'id': 5, 'chance': 0.05, 'min': 7, 'max': 8},
-		{'id': 6, 'chance': 0.05, 'min': 8, 'max': 8}
+		{'id': 2, 'chance': 0.04, 'min': 5, 'max': 7},
+		{'id': 6, 'chance': 0.04, 'min': 8, 'max': 8},
+		{'id': 5, 'chance': 0.02, 'min': 7, 'max': 8}
 	];
 	this.max_life = 10;
 	this.iridium_heal = 1;

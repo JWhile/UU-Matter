@@ -122,12 +122,11 @@ GameUI.prototype.render = function()
 {
 	this.game_canvas.render();
 };
-GameUI.prototype.update = function()
+GameUI.prototype.render_background = function()
 {
-	this.update_score();
 	this.background.render();
 };
-GameUI.prototype.update_score = function()
+GameUI.prototype.update = function()
 {
 	if (!this.game.party.playing || this.game.party.paused)
 		this.score_span.css('display', 'none');

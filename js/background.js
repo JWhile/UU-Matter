@@ -39,17 +39,18 @@ Background.prototype.render = function()
 };
 Background.prototype.generate = function()
 {
-	for (var y = 0, line, r = this.game.g.rare_blocks,
+	for (var y = 0, line,
 		size = this.game.g.canvas_size / this.game.g.blocks_size; y < size; ++y)
 	{
 		line = [];
 		for (var x = 0, rand; x < size; ++x)
 		{
 			rand = Math.random();
-			for (var i = 0; i < r.length; ++i)
+			for (var i = 0, b; i < this.game.g.rare_blocks.length; ++i)
 			{
-				if (rand < r[i]['chance'] && y >= r[i]['min'] && y <= r[i]['max'])
-					line[x] = r[i]['id'];
+				b = this.game.g.rare_blocks[i];
+				if (rand < b['chance'] && y >= b['min'] && y <= b['max'])
+					line[x] = b['id'];
 			}
 			if (!line[x])
 				line[x] = 1;
