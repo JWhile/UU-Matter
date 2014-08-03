@@ -36,6 +36,15 @@ Background.prototype.render = function()
 				this.context.drawImage(this.game.g.background_image.image, this.blocks[y][x] * s, 0, s, s, x * s, y * s, s, s);
 		}
 	}
+
+	var game_pos = [this.game.layout.node.offsetLeft, this.game.layout.node.offsetTop];
+	var s = this.game.g.canvas_size;
+
+	this.context.fillStyle = this.game.g.over_background_color;
+	this.context.fillRect(0, 0, this.width, game_pos[1]);
+	this.context.fillRect(game_pos[0] + s, game_pos[1], this.width - game_pos[0] + s, this.height - game_pos[1]);
+	this.context.fillRect(game_pos[0], game_pos[1] + s, this.game.g.canvas_size, this.height - game_pos[1] + s);
+	this.context.fillRect(0, game_pos[1], game_pos[0], this.height);
 };
 Background.prototype.generate = function()
 {

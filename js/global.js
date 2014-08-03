@@ -26,6 +26,7 @@ function Globals()
 	this.explosion_sprite = new Sprite('assets/img/explosion.png', 32, 32, 10);
 	this.blocks_size = 64;
 	this.background_image = new ImageLoader('assets/img/background.png');
+	this.over_background_color = 'rgba(0, 0, 0, 0.3)';
 	this.uu_size = 32;
 	this.iridium_chance = 0.05;
 	this.score_storage_key = 'UUMatterBestScore';
