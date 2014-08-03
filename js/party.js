@@ -21,10 +21,10 @@ function Party(game)
 }
 Party.prototype.start = function()
 {
-	this.game.menu_ui.hide();
-	this.game.game_ui.update();
 	this.paused = false;
 	this.playing = true;
+	this.game.menu_ui.hide();
+	this.game.game_ui.update();
 
 	var now = Date.now();
 	var self = this;
@@ -58,6 +58,7 @@ Party.prototype.start = function()
 Party.prototype.pause = function()
 {
 	this.paused = true;
+	this.game.game_ui.update();
 	this.game.menu_ui.update();
 	this.game.menu_ui.show();
 };
@@ -67,6 +68,7 @@ Party.prototype.stop = function()
 	this.paused = false;
 	if(this.score > this.game.best_score)
 		this.game.set_best_score(this.score);
+	this.game.game_ui.update();
 	this.game.menu_ui.update();
 	this.game.menu_ui.show();
 };

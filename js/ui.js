@@ -129,6 +129,10 @@ GameUI.prototype.update = function()
 };
 GameUI.prototype.update_score = function()
 {
+	if (!this.game.party.playing || this.game.party.paused)
+		this.score_span.css('display', 'none');
+	else
+		this.score_span.css('display', 'block');
 	this.score_span.text('x '+ this.game.party.score);
 };
 fus.extend(GameUI, Builder);
