@@ -39,11 +39,11 @@ Background.prototype.render = function()
 };
 Background.prototype.generate = function()
 {
-	for (var y = 0, line,
-		size = this.game.g.canvas_size / this.game.g.blocks_size; y < size; ++y)
+	for (var y = 0, line, w = this.width / this.game.g.blocks_size,
+		h = this.height / this.game.g.blocks_size; y < h; ++y)
 	{
 		line = [];
-		for (var x = 0, rand; x < size; ++x)
+		for (var x = 0, rand; x < w; ++x)
 		{
 			rand = Math.random();
 			for (var i = 0, b; i < this.game.g.rare_blocks.length; ++i)

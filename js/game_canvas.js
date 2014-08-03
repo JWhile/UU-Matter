@@ -18,6 +18,7 @@ function GameCanvas(game)
 	{
 		self.click(e.offsetX, e.offsetY);
 	}, false);
+	this.set_size(game.g.canvas_size, game.g.canvas_size);
 }
 GameCanvas.prototype.explosion = function(x, y)
 {

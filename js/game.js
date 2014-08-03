@@ -14,17 +14,31 @@ function UUMatterGame()
 	this.best_score = localStorage && parseInt(localStorage.getItem(this.g.score_storage_key)) || 0;
 	this.party = null;
 
-	this.className('layout');
+	this.className('uu-matter');
 
+	this.layout = new Builder('div')
+		.className('layout');
 	this.cache = new Builder('div')
 		.css('display', 'none')
+		.insert(this.layout);
+	this.background = new Background(this)
 		.insert(this);
 	this.menu_ui = new MenuUI(this)
-		.insert(this);
+		.insert(this.layout);
 	this.game_ui = new GameUI(this)
-		.insert(this);
+		.insert(this.layout);
+
+	var self = this;
 
 	this.menu_ui.update();
+	this.layout.insert(this);
+	this.background.set_size(window.innerWidth, window.innerHeight);
+	this.background.generate();
+	window.addEventListener('resize', function()
+	{
+		self.background.set_size(window.innerWidth, window.innerHeight);
+		self.background.generate();
+	}, false);
 }
 UUMatterGame.prototype.play = function()
 {
@@ -33,7 +47,7 @@ UUMatterGame.prototype.play = function()
 	else
 	{
 		if (this.party != null)
-			this.game_ui.background.generate();
+			this.background.generate();
 		this.party = new Party(this);
 		this.party.start();
 	}

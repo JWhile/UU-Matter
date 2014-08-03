@@ -8,6 +8,7 @@
 
 body
 {
+	margin:0;
 	background:#ccc;
 	text-align:center;
 	font-family:sans-serif;
@@ -27,6 +28,14 @@ a:hover
 	text-decoration:underline;
 }
 
+.uu-matter
+{
+	background:-webkit-radial-gradient(#8d8d8d,#777);
+	background:-moz-radial-gradient(#8d8d8d,#777);
+	background:-o-radial-gradient(#8d8d8d,#777);
+	background:radial-gradient(#8d8d8d,#777);
+}
+
 .layout
 {
 	cursor:pointer;
@@ -35,13 +44,9 @@ a:hover
 	display:inline-block;
 }
 
-.uu-matter
+.uu-game
 {
 	overflow:hidden;
-	background:-webkit-radial-gradient(#8d8d8d,#777);
-	background:-moz-radial-gradient(#8d8d8d,#777);
-	background:-o-radial-gradient(#8d8d8d,#777);
-	background:radial-gradient(#8d8d8d,#777);
 	box-shadow:0 0 3px #b11,inset 0 0 2px #700;
 	transition:box-shadow .2s;
 }

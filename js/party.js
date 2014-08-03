@@ -22,7 +22,7 @@ function Party(game)
 Party.prototype.start = function()
 {
 	if (!this.paused)
-		this.game.game_ui.render_background();
+		this.game.background.render();
 	this.paused = false;
 	this.playing = true;
 	this.game.menu_ui.hide();
@@ -111,7 +111,7 @@ Party.prototype.damage = function(damage)
 		this.stop();
 	}
 	this.game.game_ui.update();
-	this.game.game_ui.render_background();
+	this.game.background.render();
 };
 Party.prototype.spawn_uu = function()
 {

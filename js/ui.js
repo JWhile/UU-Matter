@@ -88,8 +88,6 @@ function GameUI(game)
 
 	this.game = game;
 	this.fabricator_timeout = 0;
-	this.background = new Background(game)
-		.insert(this);
 	this.fibre_cable = new Builder('div')
 		.className('fibre-cable')
 		.insert(this);
@@ -102,8 +100,7 @@ function GameUI(game)
 		.className('uu-counter')
 		.insert(this);
 
-	this.className('uu-matter');
-	this.background.generate();
+	this.className('uu-game');
 }
 GameUI.prototype.run_fabricator = function()
 {
@@ -121,10 +118,6 @@ GameUI.prototype.run_fabricator = function()
 GameUI.prototype.render = function()
 {
 	this.game_canvas.render();
-};
-GameUI.prototype.render_background = function()
-{
-	this.background.render();
 };
 GameUI.prototype.update = function()
 {

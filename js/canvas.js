@@ -11,12 +11,19 @@ function Canvas(game)
 	this.super('canvas');
 
 	this.game = game;
+	this.width = 0;
+	this.height = 0;
 	this.context = this.node.getContext('2d');
 
-	this.className('uu-canvas')
-		.set('width', game.g.canvas_size)
-		.set('height', game.g.canvas_size);
+	this.className('uu-canvas');
 }
+Canvas.prototype.set_size = function(w, h)
+{
+	this.width = w;
+	this.height = h;
+	this.set('width', w)
+		.set('height', h);
+};
 Canvas.prototype.clear = function()
 {
 	this.context.clearRect(0, 0, this.game.g.canvas_size, this.game.g.canvas_size);
