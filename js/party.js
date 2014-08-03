@@ -26,7 +26,13 @@ Party.prototype.start = function()
 	this.paused = false;
 	this.playing = true;
 
+	var now = Date.now();
 	var self = this;
+
+	for (var i = 0; i < this.uus.length; ++i)
+	{
+		this.uus[i].last_update = now;
+	}
 
 	var loop = function()
 	{
@@ -58,6 +64,7 @@ Party.prototype.pause = function()
 Party.prototype.stop = function()
 {
 	this.playing = false;
+	this.paused = false;
 	if(this.score > this.game.best_score)
 		this.game.set_best_score(this.score);
 	this.game.menu_ui.update();

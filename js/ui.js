@@ -62,6 +62,7 @@ MenuUI.prototype.update = function()
 		var self = this;
 		var state = true;
 
+		clearTimeout(this.blink_timeout);
 		this.blink_timeout = setInterval(function()
 		{
 			if (state)
