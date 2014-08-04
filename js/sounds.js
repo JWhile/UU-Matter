@@ -41,24 +41,24 @@ function Sound(man, url)
 {
 	this.manager = man;
 	this.url = url;
-	this.source = null;
-	this.is_load = false;
+	this.buffer = null;
 }
+Sound.prototype.is_load = function()
+{
+	return (this.buffer !== null);
+};
 Sound.prototype.load = function(callback)
 {
 	var req = new XMLHttpRequest();
 	var self = this;
 
-	this.source = this.manager.context.createBufferSource();
-	this.source.connect(this.manager.gain_node);
-	req.open(this.url, 'GET', true);
+	req.open('GET', this.url, true);
 	req.responseType = 'arraybuffer';
 	req.onload = function()
 	{
 		self.manager.context.decodeAudioData(req.response, function(buf)
 		{
-			self.source.buffer = buf;
-			self.is_load = true;
+			self.buffer = buf;
 			if (typeof callback === 'function')
 				callback();
 		});
@@ -67,6 +67,12 @@ Sound.prototype.load = function(callback)
 };
 Sound.prototype.play = function()
 {
-	if (this.is_load)
-		this.source.start(0);
+	if (this.buffer !== null)
+	{
+		var source = this.manager.context.createBufferSource();
+
+		source.buffer = this.buffer;
+		source.connect(this.manager.gain_node);
+		source.start(0);
+	}
 };

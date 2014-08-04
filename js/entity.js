@@ -61,5 +61,6 @@ IridiumEntity.prototype.click = function()
 	this.to_remove = true;
 	this.party.max_life += this.party.game.g.iridium_heal;
 	this.party.damage(-this.party.game.g.iridium_heal);
+	this.party.game.g.pop_sound.play();
 };
 fus.extend(IridiumEntity, UUEntity);
