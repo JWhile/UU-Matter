@@ -19,8 +19,8 @@ function Globals()
 	this.iridium_heal = 1;
 	this.canvas_size = 560;
 	this.sounds_manager = new SoundsManager();
-	this.pop_sound = this.sounds_manager.load('assets/sounds/pop.mp3');
-	this.click_sound = this.sounds_manager.load('assets/sounds/click.mp3');
+	this.pop_sound = this.sounds_manager.load('assets/sounds/pop.ogg');
+	this.click_sound = this.sounds_manager.load('assets/sounds/click.ogg');
 	this.entity_image = {
 		0: new ImageLoader('assets/img/uu-matter.png'),
 		1: new ImageLoader('assets/img/iridium.png')
