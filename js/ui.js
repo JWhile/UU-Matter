@@ -18,6 +18,7 @@ function MenuUI(game)
 		.className('button')
 		.event('click', function()
 		{
+			game.g.click_sound.play();
 			game.play();
 		});
 	this.stop_button = new Builder('a')
@@ -25,6 +26,7 @@ function MenuUI(game)
 		.text(this.game.g.stop_button_text)
 		.event('click', function()
 		{
+			game.g.click_sound.play();
 			game.stop();
 		});
 

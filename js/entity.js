@@ -22,6 +22,7 @@ UUEntity.prototype.click = function()
 {
 	this.to_remove = true;
 	this.party.set_score(this.party.score + 1);
+	this.party.game.g.pop_sound.play();
 };
 UUEntity.prototype.update = function()
 {

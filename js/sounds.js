@@ -25,6 +25,13 @@ SoundsManager.prototype.get = function(url)
 	this.sounds.push(s);
 	return s;
 };
+SoundsManager.prototype.load = function(url, callback)
+{
+	var s = this.get(url);
+
+	s.load(callback);
+	return s;
+};
 SoundsManager.prototype.set_volume = function(vol)
 {
 	this.gain_node.gain.value = vol;
@@ -52,7 +59,8 @@ Sound.prototype.load = function(callback)
 		{
 			self.source.buffer = buf;
 			self.is_load = true;
-			callback();
+			if (typeof callback === 'function')
+				callback();
 		});
 	};
 	req.send();
