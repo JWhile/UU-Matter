@@ -36,6 +36,8 @@ a:hover
 	cursor:pointer;
 	position:relative;
 	display:inline-block;
+	width:560px;
+	height:560px;
 	box-shadow:1px 1px 6px #1ff, -1px -1px 6px #1ff,inset 0 0 3px #8ff;
 	text-align:center;
 }
@@ -144,7 +146,7 @@ a:hover
 {
 	z-index:99;
 	position:relative;
-	margin:248px;
+	margin:246px;
 	width:64px;
 	height:64px;
 	background:#8b8b8b url('img/matter-fabricator.png') 0 0 no-repeat;
