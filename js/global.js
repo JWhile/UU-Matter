@@ -18,6 +18,7 @@ function Globals()
 	this.max_life = 10;
 	this.iridium_heal = 1;
 	this.canvas_size = 560;
+	this.default_volume = 0.5;
 	this.sounds_manager = new SoundsManager();
 	this.bzzz_sound = this.sounds_manager.load('assets/sounds/bzzz.ogg');
 	this.pop_sound = this.sounds_manager.load('assets/sounds/pop.ogg');
@@ -35,6 +36,7 @@ function Globals()
 	this.uu_size = 32;
 	this.iridium_chance = 0.05;
 	this.score_storage_key = 'UUMatterBestScore';
+	this.sound_storage_key = 'UUMatterSoundsDisabled';
 	this.score_blink_interval = 750;
 	this.play_button_text = 'Jouer';
 	this.pause_button_text = 'Reprendre';

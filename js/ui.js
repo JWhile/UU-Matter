@@ -88,6 +88,8 @@ function GameUI(game)
 {
 	this.super('div');
 
+	var self = this;
+
 	this.game = game;
 	this.fabricator_timeout = 0;
 	this.fibre_cable = new Builder('div')
@@ -101,6 +103,17 @@ function GameUI(game)
 	this.score_span = new Builder('span')
 		.className('uu-counter')
 		.insert(this);
+	this.menu = new Builder('div')
+		.className('uu-context-menu')
+		.insert(this);
+	this.menu_sound = new Builder('a')
+		.className('uu-context-menu-button')
+		.event('click', function()
+		{
+			self.game.set_sounds_enabled(self.game.sounds_disabled);
+			self.update();
+		})
+		.insert(this.menu);
 
 	this.className('uu-game');
 }
@@ -108,13 +121,13 @@ GameUI.prototype.run_fabricator = function()
 {
 	var self = this;
 
-	this.uu_fabricator.className('uu-fabricator on');
-	this.fibre_cable.className('fibre-cable on');
+	this.uu_fabricator.attr('data-on', '1');
+	this.fibre_cable.attr('data-on', '1');
 	clearTimeout(this.fabricator_timeout);
 	this.fabricator_timeout = setTimeout(function()
 	{
-		self.uu_fabricator.className('uu-fabricator');
-		self.fibre_cable.className('fibre-cable');
+		self.uu_fabricator.attr('data-on', '0');
+		self.fibre_cable.attr('data-on', '0');
 	}, 350);
 	this.game.g.bzzz_sound.play();
 };
@@ -125,9 +138,16 @@ GameUI.prototype.render = function()
 GameUI.prototype.update = function()
 {
 	if (!this.game.party.playing || this.game.party.paused)
+	{
 		this.score_span.css('display', 'none');
+		this.menu.css('display', 'none');
+	}
 	else
+	{
 		this.score_span.css('display', 'block');
-	this.score_span.text('x '+ this.game.party.score);
+		this.score_span.text('x '+ this.game.party.score);
+		this.menu.css('display', 'block');
+		this.menu_sound.attr('sounds-enabled', (this.game.sounds_disabled? 'off' : 'on'));
+	}
 };
 fus.extend(GameUI, Builder);

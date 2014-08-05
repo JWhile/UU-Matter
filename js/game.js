@@ -11,7 +11,9 @@ function UUMatterGame()
 	this.super('div');
 
 	this.g = new Globals();
+	this.g.sounds_manager.set_volume(this.g.default_volume);
 	this.best_score = localStorage && parseInt(localStorage.getItem(this.g.score_storage_key)) || 0;
+	this.sounds_disabled = localStorage && parseInt(localStorage.getItem(this.g.sound_storage_key)) || 0;
 	this.party = null;
 
 	this.className('uu-matter');
@@ -53,6 +55,13 @@ UUMatterGame.prototype.stop = function()
 {
 	if (this.party != null)
 		this.party.stop();
+};
+UUMatterGame.prototype.set_sounds_enabled = function(enabled)
+{
+	this.sounds_disabled = !enabled;
+	this.g.sounds_manager.set_enabled(enabled);
+	if (localStorage)
+		localStorage.setItem(this.g.sound_storage_key, this.sounds_disabled);
 };
 UUMatterGame.prototype.set_best_score = function(score)
 {

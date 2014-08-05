@@ -15,6 +15,7 @@ function SoundsManager()
 	this.context = new AudioContext();
 	this.gain_node = this.context.createGain();
 	this.sounds = [];
+	this.enabled = true;
 
 	this.gain_node.connect(this.context.destination);
 }
@@ -24,6 +25,10 @@ SoundsManager.prototype.get = function(url)
 
 	this.sounds.push(s);
 	return s;
+};
+SoundsManager.prototype.set_enabled = function(enable)
+{
+	this.enabled = enable;
 };
 SoundsManager.prototype.load = function(url, callback)
 {
@@ -67,7 +72,7 @@ Sound.prototype.load = function(callback)
 };
 Sound.prototype.play = function()
 {
-	if (this.buffer !== null)
+	if (this.manager.enabled && this.buffer !== null)
 	{
 		var source = this.manager.context.createBufferSource();
 

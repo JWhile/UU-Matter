@@ -99,6 +99,29 @@ a:hover
 	color:#bbb;
 }
 
+.uu-context-menu
+{
+	position:absolute;
+	top:15px;
+	right:25px;
+}
+.uu-context-menu-button
+{
+	display:block;
+	margin:0 0 0 10px;
+	width:16px;
+	height:16px;
+	background:rgba(200, 200, 200, 0.1) url('img/context-menu.png') 0 0 no-repeat;
+}
+.uu-context-menu-button[sounds-enabled="on"]
+{
+	background-position:-16px 0;
+}
+.uu-context-menu-button[sounds-enabled="off"]
+{
+	background-position:-32px 0;
+}
+
 .uu-counter
 {
 	position:absolute;
@@ -129,7 +152,7 @@ a:hover
 	transition-property:box-shadow;
 	transition-duration:.35s;
 }
-.uu-fabricator.on
+.uu-fabricator[data-on="1"]
 {
 	background-position:-64px 0;
 	box-shadow:0 0 35px #1ff,inset 0 0 15px #8ff;
@@ -148,7 +171,7 @@ a:hover
 	transition-property:background-color, box-shadow;
 	transition-duration:.25s;
 }
-.fibre-cable.on
+.fibre-cable[data-on="1"]
 {
 	background-color:rgba(0, 0, 0, 0.1);
 	box-shadow:0 0 4px #111, inset 0 0 5px #1ff;
