@@ -6,9 +6,7 @@
  * sounds.js
  */
 
-var AudioContext = window.AudioContext || window.webkitAudioContext;
-
-window.AudioContext = AudioContext;
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
 function SoundsManager()
 {
