@@ -37,7 +37,7 @@ Background.prototype.render = function()
 		}
 	}
 
-	var game_pos = [this.game.layout.node.offsetLeft, this.game.layout.node.offsetTop];
+	var game_pos = [this.game.ui.layout.node.offsetLeft, this.game.ui.layout.node.offsetTop];
 	var s = this.game.g.canvas_size;
 
 	this.context.fillStyle = this.game.g.over_background_color;

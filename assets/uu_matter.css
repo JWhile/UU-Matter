@@ -10,7 +10,6 @@ body
 {
 	margin:0;
 	background:#ccc;
-	text-align:center;
 	font-family:sans-serif;
 	-webkit-touch-callout:none;
 	-webkit-user-select:none;
@@ -38,6 +37,7 @@ a:hover
 	position:relative;
 	display:inline-block;
 	box-shadow:1px 1px 6px #1ff, -1px -1px 6px #1ff,inset 0 0 3px #8ff;
+	text-align:center;
 }
 
 .uu-game

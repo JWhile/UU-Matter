@@ -6,6 +6,49 @@
  * ui.js
  */
 
+function UI(game)
+{
+	this.super('div');
+
+	this.game = game;
+	this.zoom = 1;
+
+	this.layout = new Builder('div')
+		.className('layout');
+	this.background = new Background(game)
+		.insert(this);
+	this.menu_ui = new MenuUI(game)
+		.insert(this.layout);
+	this.game_ui = new GameUI(game)
+		.insert(this.layout);
+
+	this.className('uu-matter');
+	this.menu_ui.update();
+	this.layout.insert(this);
+	this.update();
+}
+UI.prototype.update = function()
+{
+	var w = window.innerWidth;
+	var h = window.innerHeight;
+	var z = 1;
+
+	z = w / this.game.g.canvas_size;
+	if (h / this.game.g.canvas_size < z)
+		z = h / this.game.g.canvas_size;
+	this.layout.css('left', (w - (this.game.g.canvas_size * z)) / 2 +'px');
+	this.layout.css('top', (h - (this.game.g.canvas_size * z)) / 2 +'px');
+	this.set_zoom(z);
+	this.background.set_size(w / z, h / z);
+	this.background.generate();
+};
+UI.prototype.set_zoom = function(zoom)
+{
+	this.zoom = zoom;
+	this.css('zoom', zoom);
+};
+fus.extend(UI, Builder);
+
 function MenuUI(game)
 {
 	this.super('div');

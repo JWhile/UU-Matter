@@ -8,35 +8,19 @@
 
 function UUMatterGame()
 {
-	this.super('div');
-
 	this.g = new Globals();
 	this.g.sounds_manager.set_volume(this.g.default_volume);
 	this.best_score = localStorage && parseInt(localStorage.getItem(this.g.score_storage_key)) || 0;
 	this.sounds_disabled = localStorage && parseInt(localStorage.getItem(this.g.sound_storage_key)) || 0;
 	this.party = null;
-
-	this.className('uu-matter');
-
-	this.layout = new Builder('div')
-		.className('layout');
-	this.background = new Background(this)
-		.insert(this);
-	this.menu_ui = new MenuUI(this)
-		.insert(this.layout);
-	this.game_ui = new GameUI(this)
-		.insert(this.layout);
+	this.ui = new UI(this);
 
 	var self = this;
 
-	this.menu_ui.update();
-	this.layout.insert(this);
-	this.background.set_size(window.innerWidth, window.innerHeight);
-	this.background.generate();
+	this.ui.insert(document.body);
 	window.addEventListener('resize', function()
 	{
-		self.background.set_size(window.innerWidth, window.innerHeight);
-		self.background.generate();
+		self.ui.update();
 	}, false);
 }
 UUMatterGame.prototype.play = function()
@@ -46,7 +30,7 @@ UUMatterGame.prototype.play = function()
 	else
 	{
 		if (this.party != null)
-			this.background.generate();
+			this.ui.background.generate();
 		this.party = new Party(this);
 		this.party.start();
 	}
@@ -69,4 +53,3 @@ UUMatterGame.prototype.set_best_score = function(score)
 	if (localStorage)
 		localStorage.setItem(this.g.score_storage_key, this.best_score);
 };
-fus.extend(UUMatterGame, Builder);

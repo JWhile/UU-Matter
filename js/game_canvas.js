@@ -26,6 +26,8 @@ GameCanvas.prototype.explosion = function(x, y)
 };
 GameCanvas.prototype.click = function(x, y)
 {
+	x /= this.game.ui.zoom;
+	y /= this.game.ui.zoom;
 	for (var i = 0, u, s = this.game.g.uu_size; i < this.game.party.uus.length; ++i)
 	{
 		u = this.game.party.uus[i];

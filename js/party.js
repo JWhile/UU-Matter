@@ -22,11 +22,11 @@ function Party(game)
 Party.prototype.start = function()
 {
 	if (!this.paused)
-		this.game.background.render();
+		this.game.ui.background.render();
 	this.paused = false;
 	this.playing = true;
-	this.game.menu_ui.hide();
-	this.game.game_ui.update();
+	this.game.ui.menu_ui.hide();
+	this.game.ui.game_ui.update();
 
 	var now = Date.now();
 	var self = this;
@@ -60,9 +60,9 @@ Party.prototype.start = function()
 Party.prototype.pause = function()
 {
 	this.paused = true;
-	this.game.game_ui.update();
-	this.game.menu_ui.update();
-	this.game.menu_ui.show();
+	this.game.ui.game_ui.update();
+	this.game.ui.menu_ui.update();
+	this.game.ui.menu_ui.show();
 };
 Party.prototype.stop = function()
 {
@@ -70,9 +70,9 @@ Party.prototype.stop = function()
 	this.paused = false;
 	if(this.score > this.game.best_score)
 		this.game.set_best_score(this.score);
-	this.game.game_ui.update();
-	this.game.menu_ui.update();
-	this.game.menu_ui.show();
+	this.game.ui.game_ui.update();
+	this.game.ui.menu_ui.update();
+	this.game.ui.menu_ui.show();
 };
 Party.prototype.update = function()
 {
@@ -95,12 +95,12 @@ Party.prototype.update = function()
 			}
 		}
 	}
-	this.game.game_ui.render();
+	this.game.ui.game_ui.render();
 };
 Party.prototype.set_score = function(score)
 {
 	this.score = score;
-	this.game.game_ui.update();
+	this.game.ui.game_ui.update();
 };
 Party.prototype.damage = function(damage)
 {
@@ -110,8 +110,8 @@ Party.prototype.damage = function(damage)
 		this.life = 0;
 		this.stop();
 	}
-	this.game.game_ui.update();
-	this.game.background.render();
+	this.game.ui.game_ui.update();
+	this.game.ui.background.render();
 };
 Party.prototype.spawn_uu = function()
 {
@@ -120,5 +120,5 @@ Party.prototype.spawn_uu = function()
 
 	uu.setPos(pos, pos);
 	this.uus.push(uu);
-	this.game.game_ui.run_fabricator();
+	this.game.ui.game_ui.run_fabricator();
 };
