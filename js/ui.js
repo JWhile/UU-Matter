@@ -36,10 +36,12 @@ UI.prototype.update = function()
 	z = w / this.game.g.canvas_size;
 	if (h / this.game.g.canvas_size < z)
 		z = h / this.game.g.canvas_size;
-	this.layout.css('left', (w - (this.game.g.canvas_size * z)) / 2 +'px');
-	this.layout.css('top', (h - (this.game.g.canvas_size * z)) / 2 +'px');
+	w /= z;
+	h /= z;
+	this.layout.css('left', (w - this.game.g.canvas_size) / 2 +'px');
+	this.layout.css('top', (h - this.game.g.canvas_size) / 2 +'px');
 	this.set_zoom(z);
-	this.background.set_size(w / z, h / z);
+	this.background.set_size(w, h);
 	this.background.generate();
 };
 UI.prototype.set_zoom = function(zoom)

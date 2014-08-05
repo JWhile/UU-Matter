@@ -17,19 +17,30 @@ function UUMatterGame()
 
 	var self = this;
 
+	this.set_sounds_enabled(!this.sounds_disabled);
 	this.ui.insert(document.body);
 	window.addEventListener('resize', function()
 	{
 		self.ui.update();
 	}, false);
+	window.addEventListener('keyup', function(e)
+	{
+		if (e.keyCode === 27 && self.party !== null && self.party.playing)
+		{
+			if (self.party.paused)
+				self.play();
+			else
+				self.party.pause();
+		}
+	}, false);
 }
 UUMatterGame.prototype.play = function()
 {
-	if (this.party != null && this.party.paused)
+	if (this.party !== null && this.party.paused)
 		this.party.start();
 	else
 	{
-		if (this.party != null)
+		if (this.party !== null)
 			this.ui.background.generate();
 		this.party = new Party(this);
 		this.party.start();
@@ -37,12 +48,12 @@ UUMatterGame.prototype.play = function()
 };
 UUMatterGame.prototype.stop = function()
 {
-	if (this.party != null)
+	if (this.party !== null)
 		this.party.stop();
 };
 UUMatterGame.prototype.set_sounds_enabled = function(enabled)
 {
-	this.sounds_disabled = !enabled;
+	this.sounds_disabled = enabled? 0 : 1;
 	this.g.sounds_manager.set_enabled(enabled);
 	if (localStorage)
 		localStorage.setItem(this.g.sound_storage_key, this.sounds_disabled);
