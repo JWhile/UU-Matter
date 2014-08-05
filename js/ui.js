@@ -106,8 +106,15 @@ function GameUI(game)
 	this.menu = new Builder('div')
 		.className('uu-context-menu')
 		.insert(this);
-	this.menu_sound = new Builder('a')
-		.className('uu-context-menu-button')
+	this.pause_button = new Builder('a')
+		.className('uu-context-menu-button pause')
+		.event('click', function()
+		{
+			self.game.party.pause();
+		})
+		.insert(this.menu);
+	this.sound_button = new Builder('a')
+		.className('uu-context-menu-button sound')
 		.event('click', function()
 		{
 			self.game.set_sounds_enabled(self.game.sounds_disabled);
@@ -147,7 +154,7 @@ GameUI.prototype.update = function()
 		this.score_span.css('display', 'block');
 		this.score_span.text('x '+ this.game.party.score);
 		this.menu.css('display', 'block');
-		this.menu_sound.attr('sounds-enabled', (this.game.sounds_disabled? 'off' : 'on'));
+		this.sound_button.attr('sounds-enabled', (this.game.sounds_disabled? 'off' : 'on'));
 	}
 };
 fus.extend(GameUI, Builder);

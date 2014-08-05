@@ -101,23 +101,24 @@ a:hover
 
 .uu-context-menu
 {
+	display:none;
 	position:absolute;
 	top:15px;
 	right:25px;
 }
 .uu-context-menu-button
 {
-	display:block;
+	display:inline-block;
 	margin:0 0 0 10px;
 	width:16px;
 	height:16px;
 	background:rgba(200, 200, 200, 0.1) url('img/context-menu.png') 0 0 no-repeat;
 }
-.uu-context-menu-button[sounds-enabled="on"]
+.uu-context-menu-button.sound[sounds-enabled="on"]
 {
 	background-position:-16px 0;
 }
-.uu-context-menu-button[sounds-enabled="off"]
+.uu-context-menu-button.sound[sounds-enabled="off"]
 {
 	background-position:-32px 0;
 }
