@@ -41,5 +41,5 @@ function Globals()
 	this.play_button_text = 'Jouer';
 	this.pause_button_text = 'Reprendre';
 	this.stop_button_text = 'Stop';
-	this.footer_text = 'By <a href="https://github.com/JWhile" target="_blank">juloo</a> - v2.0.2';
+	this.footer_text = 'By <a href="https://github.com/JWhile" target="_blank">juloo</a> - v2.0.3';
 }
