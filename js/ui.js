@@ -116,6 +116,7 @@ GameUI.prototype.run_fabricator = function()
 		self.uu_fabricator.className('uu-fabricator');
 		self.fibre_cable.className('fibre-cable');
 	}, 350);
+	this.game.g.bzzz_sound.play();
 };
 GameUI.prototype.render = function()
 {

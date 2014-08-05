@@ -36,6 +36,7 @@ UUEntity.prototype.explode = function()
 {
 	this.party.game.game_ui.game_canvas.explosion(this.x, this.y);
 	this.to_remove = true;
+	this.party.game.g.shock_sound.play();
 };
 UUEntity.prototype.collide = function(size)
 {
