@@ -156,6 +156,7 @@ function GameUI(game)
 		.event('click', function()
 		{
 			self.game.party.pause();
+			self.game.g.click_sound.play();
 		})
 		.insert(this.menu);
 	this.sound_button = new Builder('a')
@@ -164,6 +165,7 @@ function GameUI(game)
 		{
 			self.game.set_sounds_enabled(self.game.sounds_disabled);
 			self.update();
+			self.game.g.click_sound.play();
 		})
 		.insert(this.menu);
 
